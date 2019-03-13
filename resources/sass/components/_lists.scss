@@ -1,0 +1,18 @@
+@mixin list($val, $margin-left, $margin-right) {
+    margin-left: $margin-left;
+    margin-right: $margin-right;
+    text-align:right;
+    >li{
+        display: inline-block;
+        cursor: pointer;
+        transition: 0.1s all ease-in-out;
+        &:hover{
+            color:$main-color;
+            transition: 0.1s all ease-in-out;
+        }
+    }
+    @if($val == 1){
+        list-style: none;
+        float: right;
+    }
+}

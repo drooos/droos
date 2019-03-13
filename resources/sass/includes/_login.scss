@@ -1,0 +1,28 @@
+.login{
+    width: 30vw;
+    margin: auto;
+    direction: rtl!important;
+    text-align: right;
+    box-shadow: 0px 0px 10px $main-color;
+    border-radius: 10px 10px 0px 0px;
+    margin-top: 40px;
+    opacity: 0.8;
+    background-color: #eee;
+    .margin{
+        padding: 30px 30px 0px 30px;   
+    }
+    .con-icon{
+        width: 100%;
+        display: inline-flex;
+        .ico{
+            color:#fff;
+            background-color: $main-color;
+            padding: 10px;
+        }
+    }
+}
+.spe{
+    padding: 10px 0px;
+    font-size: 20px;
+    font-weight: bold;
+}
