@@ -1,0 +1,26 @@
+//@import 'imports';
+.app-btn{
+    @include btn(1);
+    //background-color: #000;
+}
+
+.app-btn-back{
+    @include btn(2);
+}
+
+.app-li-h{
+    @include list(1,5px,0px);
+}
+.app-li-h2{
+    @include list(1,0px,0px);
+}
+
+.mar-lf-10{
+    margin-left:10px;
+}
+
+.app-btn-form{
+    width: 100%;
+    border-radius: 0px!important;
+    padding: 10px;
+}

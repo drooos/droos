@@ -1,0 +1,59 @@
+// Fonts
+@import '../imports';
+
+//resets 
+p{@include reset();}
+div.con{
+	margin: 10px 0px;;
+	>div{
+		display: inline-flex;
+	}
+}
+nav.navbar {
+	padding-top:20px; 
+	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.04);
+	background-color: $back-color;
+	color:$font-color;
+	font-size: 14px;
+
+	div.logo-body{
+		font-size: 18px;
+		text-align: right;
+
+		.she3ar{
+			font-size:30px;
+		}//end of she3ar
+	}//end of logo-body
+
+	.brand
+	{
+		font-size: 30px;
+
+		.logo-text{
+	
+		}//end of logo-text
+	}//end of brand
+	.lux{
+		margin-right: 200px;
+		ul{
+			margin-left: 10px;
+			border-left: 2px solid #ccc;
+		}
+		ul>li{
+			padding-left: 6px;
+		}
+	}
+	.services
+	{
+		font-size: 18px;
+		//padding: 10px 0px;
+		.services-content
+		{
+			
+			>li
+			{
+				padding-left: 10px;
+			}//end of ul
+		}//end of content
+	}//end of services
+}//end of nav
