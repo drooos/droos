@@ -8,6 +8,10 @@
     @include btn(2);
 }
 
+.app-btn-link{
+    @include btn(3);
+}
+
 .app-li-h{
     @include list(1,5px,0px);
 }
