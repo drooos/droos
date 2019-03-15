@@ -1,0 +1,42 @@
+nav.dashnav{
+    padding: 20px 0px 0px 0px;
+    border-bottom: 0.5px solid #ccc;
+    color:#66615b;
+    div.title{
+        font-size:20px;
+    }
+    div.con-icon{
+        width: 180px;
+        position: relative;
+        >i{
+            position: absolute;
+            top:10px;
+            left: 24px;
+        }
+        input{
+            border:0px;
+            background-color: #eeedea;
+            padding: 4px 10px 4px 0px;
+            border-radius: 4px;
+            outline: none;
+            transition: 0.4s all ease-in-out;
+            &:focus{
+                background-color: #ddd;
+            }
+        }
+    }
+    ul{
+        li{
+            display: inline-flex;
+            padding-left:10px; 
+            padding-top: 10px;
+            font-size:18px;
+            cursor: pointer;
+            transition: 0.5s all ease-in-out;
+            &:hover{
+                color:$main-color;
+            }
+        }
+        
+    }
+}

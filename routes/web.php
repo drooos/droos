@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('layout');
+    return view('dashboard.profile');
 });
 
 Route::view('login','login');
@@ -22,4 +22,6 @@ Auth::routes();
 Route::get('signup', function(){
     return view('signup');
 });
+Route::view('test','layouts.app');
 //Route::get('/home', 'HomeController@index')->name('home');
+

@@ -1,5 +1,5 @@
 // Fonts
-@import '../imports';
+@import '../framework/imports';
 
 //resets 
 p{@include reset();}
@@ -10,7 +10,6 @@ div.con{
 	}
 }
 nav.navbar {
-	padding-top:20px; 
 	box-shadow: 0px 0px 14px rgba(0, 0, 0, 0.04);
 	background-color: $back-color;
 	color:$font-color;
@@ -27,11 +26,7 @@ nav.navbar {
 
 	.brand
 	{
-		font-size: 30px;
-
-		.logo-text{
-	
-		}//end of logo-text
+		font-size: 23px;
 	}//end of brand
 	.lux{
 		margin-right: 200px;

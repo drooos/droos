@@ -1,17 +1,16 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
-@import url('https://fonts.googleapis.com/css?family=Cairo');
-@import '../../node_modules/bootstrap/scss/bootstrap.scss';
 // Variables
 @import 'includes/navSytle';
 @import 'includes/login';
 @import 'includes/signup.scss';
-@import 'imports';
+@import 'framework/imports';
+
 *{
   font-family: 'Cairo', sans-serif;
   direction: $direction;
   box-sizing: border-box;
+
 }
 body{
   font-family: $font-family-sans-serif;
