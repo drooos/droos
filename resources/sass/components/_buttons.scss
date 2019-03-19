@@ -1,0 +1,44 @@
+@mixin btn($val) {
+    background-color: $main-color; 
+    color: $font-color-i;
+    @if($val == 1){
+        border: 1px solid $main-color;
+        color:$main-color;
+        &:hover{
+            background-color: $main-color; 
+            color: $font-color-i;
+        }
+    }
+    @if($val == 2){
+        background-color: $main-color; 
+        color: $font-color-i;
+        &:hover{
+            border: 1px double $main-color;
+            background-color: $font-color-i; 
+            color: $main-color;
+            a{
+                color: $main-color;
+                text-decoration: none;
+            }
+        }
+    }
+    
+    @if($val == 3){
+        background-color: $main-color; 
+        color: $font-color-i;
+        border:0;
+        padding: 10px;
+        border-radius: 50px;
+        transition: 0.3s all ease-in-out;
+        &:hover{
+            border: 1px double $main-color;
+            background-color: $font-color-i; 
+            color: $main-color;
+            a{
+                color: $main-color;
+                text-decoration: none;
+            }
+        }
+    }
+    
+}

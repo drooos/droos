@@ -1,0 +1,5 @@
+
+npm install --save-dev gulp-sass
+npm install --save-dev gulp-autoprefixer
+npm install --save-dev gulp-livereload
+npm install gulp gulp-connect-php --save-dev

@@ -1,0 +1,36 @@
+@import 'framework/imports';
+
+@import 'dashboard/sidebar';
+@import 'dashboard/dashNav';
+@import 'dashboard/profileStyle/profile';
+
+*{
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+  box-sizing: border-box;
+}
+
+body{
+    text-align: right;
+  font-family: $font-family-sans-serif;
+  background-color:$base-color;
+  color : #000;
+  overflow-x: hidden;
+  
+}
+
+a{
+  text-decoration: none;
+  color:$font-color-i;
+  &:hover{
+    color:$font-color-i;
+  }
+}
+
+.test{
+    background-color: $base-color;
+    width: calc(100vw - 290px);
+    margin: 0px;
+    padding: 0px;
+    //margin-right: 1px;
+}

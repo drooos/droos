@@ -12,5 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard.profile');
 });
+
+Route::view('login','login');
+
+Auth::routes();
+
+Route::get('signup', function(){
+    return view('auth.register');
+});
+Route::view('test','layouts.app');
+//Route::get('/home', 'HomeController@index')->name('home');
+
