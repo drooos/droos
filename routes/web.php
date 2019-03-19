@@ -20,7 +20,7 @@ Route::view('login','login');
 Auth::routes();
 
 Route::get('signup', function(){
-    return view('signup');
+    return view('auth.register');
 });
 Route::view('test','layouts.app');
 //Route::get('/home', 'HomeController@index')->name('home');

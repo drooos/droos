@@ -28,7 +28,7 @@
                                 <input type="text" class="form-control" placeholder="الاسم الاول*" value=""  name="fname"/>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="الاسم الثاني*" value="" name="lname"/>
+                                <input type="text" class="form-control" placeholder="اسم العائلة*" value="" name="lname"/>
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" placeholder="كلمة المرور *" value="" name="password" />

@@ -6,6 +6,8 @@
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 @import url("https://fonts.googleapis.com/css?family=Cairo");
 .app-btn {
+  background-color: #38c172;
+  color: #fff;
   border: 1px solid #38c172;
   color: #38c172; }
   .app-btn:hover {
@@ -13,6 +15,8 @@
     color: #fff; }
 
 .app-btn-back {
+  background-color: #38c172;
+  color: #fff;
   background-color: #38c172;
   color: #fff; }
   .app-btn-back:hover {
@@ -24,6 +28,8 @@
       text-decoration: none; }
 
 .app-btn-link {
+  background-color: #38c172;
+  color: #fff;
   background-color: #38c172;
   color: #fff;
   border: 0;
@@ -7341,6 +7347,8 @@ nav.navbar {
     @ this mixin reset margin and padding
 */
 .app-btn {
+  background-color: #38c172;
+  color: #fff;
   border: 1px solid #38c172;
   color: #38c172; }
   .app-btn:hover {
@@ -7348,6 +7356,8 @@ nav.navbar {
     color: #fff; }
 
 .app-btn-back {
+  background-color: #38c172;
+  color: #fff;
   background-color: #38c172;
   color: #fff; }
   .app-btn-back:hover {
@@ -7359,6 +7369,8 @@ nav.navbar {
       text-decoration: none; }
 
 .app-btn-link {
+  background-color: #38c172;
+  color: #fff;
   background-color: #38c172;
   color: #fff;
   border: 0;

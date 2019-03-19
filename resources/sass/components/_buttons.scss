@@ -1,4 +1,6 @@
 @mixin btn($val) {
+    background-color: $main-color; 
+    color: $font-color-i;
     @if($val == 1){
         border: 1px solid $main-color;
         color:$main-color;

@@ -10,11 +10,11 @@
         </div>
     
         <ul class="side-list remove-li">
-            <li class="active">
+            <li >
                 <i class="far fa-tachometer-alt"></i>
                 <span>الرئيسية</span>
             </li>
-            <li>
+            <li class="active">
                 <i class="far fa-user"></i>
                 <span>الصفحة الشخصية</span>
             </li>
