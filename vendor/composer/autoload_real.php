@@ -19,15 +19,15 @@ class ComposerAutoloaderInit
             return self::$loader;
         }
 
-        spl_autoload_register(array('ComposerAutoloaderInit8dc63b7e951a55dad73bf0fc728a2262', 'loadClassLoader'), true, true);
+        spl_autoload_register(array('ComposerAutoloaderInit', 'loadClassLoader'), true, true);
         self::$loader = $loader = new \Composer\Autoload\ClassLoader();
-        spl_autoload_unregister(array('ComposerAutoloaderInit8dc63b7e951a55dad73bf0fc728a2262', 'loadClassLoader'));
+        spl_autoload_unregister(array('ComposerAutoloaderInit', 'loadClassLoader'));
 
         $useStaticLoader = PHP_VERSION_ID >= 50600 && !defined('HHVM_VERSION') && (!function_exists('zend_loader_file_encoded') || !zend_loader_file_encoded());
         if ($useStaticLoader) {
             require_once __DIR__ . '/autoload_static.php';
 
-            call_user_func(\Composer\Autoload\ComposerStaticInit8dc63b7e951a55dad73bf0fc728a2262::getInitializer($loader));
+            call_user_func(\Composer\Autoload\ComposerStaticInit::getInitializer($loader));
         } else {
             $map = require __DIR__ . '/autoload_namespaces.php';
             foreach ($map as $namespace => $path) {
@@ -48,19 +48,19 @@ class ComposerAutoloaderInit
         $loader->register(true);
 
         if ($useStaticLoader) {
-            $includeFiles = Composer\Autoload\ComposerStaticInit8dc63b7e951a55dad73bf0fc728a2262::$files;
+            $includeFiles = Composer\Autoload\ComposerStaticInit::$files;
         } else {
             $includeFiles = require __DIR__ . '/autoload_files.php';
         }
         foreach ($includeFiles as $fileIdentifier => $file) {
-            composerRequire8dc63b7e951a55dad73bf0fc728a2262($fileIdentifier, $file);
+            composerRequire($fileIdentifier, $file);
         }
 
         return $loader;
     }
 }
 
-function composerRequire8dc63b7e951a55dad73bf0fc728a2262($fileIdentifier, $file)
+function composerRequire($fileIdentifier, $file)
 {
     if (empty($GLOBALS['__composer_autoload_files'][$fileIdentifier])) {
         require $file;

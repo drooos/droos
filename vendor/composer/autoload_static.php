@@ -3901,10 +3901,10 @@ class ComposerStaticInit
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit8dc63b7e951a55dad73bf0fc728a2262::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit8dc63b7e951a55dad73bf0fc728a2262::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit8dc63b7e951a55dad73bf0fc728a2262::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit8dc63b7e951a55dad73bf0fc728a2262::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit::$classMap;
 
         }, null, ClassLoader::class);
     }
