@@ -17,7 +17,7 @@ class CreateAssistantsTable extends Migration
             $table->unsignedBigInteger('assistantId'); // Refers to users.userId
             $table->unsignedBigInteger('teacherId'); // Refers to teachers.teacherId
             $table->timestamps();
-            $table->foreign('assistantId')->references('userId')->on('users');
+            $table->foreign('assistantId')->references('id')->on('users');
             $table->foreign('teacherId')->references('teacherId')->on('teachers');
         });
     }
