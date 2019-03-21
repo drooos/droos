@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('dashboard.profile');
+    return view('courses.teacherCourse');
 });
 
 Route::view('login','login');
