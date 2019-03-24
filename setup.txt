@@ -12,4 +12,7 @@ git branch yourbranch
 git checkout yourbranch
 
 
-enJoyyyy ^^
+to submit you code 
+git add *
+git commit -m "your message"
+git push origin yourbranch
