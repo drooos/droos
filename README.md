@@ -3,9 +3,8 @@
 
 trello board 
 https://trello.com/b/qKnzjVzR/droos
-
-Usage
-  . Clone the Repository
+# Usage
+    Clone the Repository
     git clone https://github.com/drooos/droos.git
     
 # Install the dependencies
