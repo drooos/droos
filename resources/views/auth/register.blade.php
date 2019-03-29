@@ -22,13 +22,15 @@
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <h3 class="register-heading">التسجيل كمدرس</h3>
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
                     <div class="row register-form">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="الاسم الاول*" value=""  name="fname"/>
+                                <input type="text" class="form-control" placeholder="الاسم الاول*" value=""  name="userFname"/>
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="اسم العائلة*" value="" name="lname"/>
+                                <input type="text" class="form-control" placeholder="اسم العائلة*" value="" name="userLname"/>
                             </div>
                             <div class="form-group">
                                 <input type="password" class="form-control" placeholder="كلمة المرور *" value="" name="password" />
@@ -59,7 +61,7 @@
                                 <input type="email" class="form-control" placeholder="البريد الالكتروني *" value="" name="email"/>
                             </div>
                             <div class="form-group">
-                                <input type="text" maxlength="12" name="Phone" class="form-control" placeholder="رقم هاتفك الجوال *" value=""/>
+                                <input type="text" maxlength="12" name="userNumber" class="form-control" placeholder="رقم هاتفك الجوال *" value=""/>
                             </div>
                             <div class="form-group">
                                 <select class="form-control" name="secQ">
@@ -75,7 +77,7 @@
                             </div>
 
                             <input type="submit" class="btnRegister"  value="تسجيل الحساب"/>
-
+                        </form>
                         </div>
                     </div>
                 </div>
