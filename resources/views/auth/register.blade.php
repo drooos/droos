@@ -1,19 +1,23 @@
 @extends('layout')
 @section('content')
 <div class=" register">
+
     <div class="row">
         <div class="col-md-9 register-right">
+            <input type="hidden" name="userRole" value="teacher" id="userRole">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                <li class="nav-item userRole" data-role="teacher">
+                    <a class="nav-link active">
                         مدرس
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">ولي امر</a>
+                <li class="nav-item userRole" data-role="parent">
+                    <a class="nav-link">
+                        ولي امر
+                    </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">
+                <li class="nav-item userRole" data-role="student">
+                    <a class="nav-link" >
                         طالب
                     </a>
                 </li>

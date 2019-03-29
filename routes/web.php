@@ -12,11 +12,12 @@
 */
 
 Route::get('/', function () {
-    return view('courses.teacherCourse');
+    return view('timeTable.timeTable');
+    //return view('courses.teacherCourse');
 });
 
 Route::view('login','login');
-
+Route::view('profile', 'dashboard.profile');
 Auth::routes();
 
 Route::get('signup', function(){
