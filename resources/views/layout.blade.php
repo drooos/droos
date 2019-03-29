@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Droos</title>
         <!-- Fonts -->
         
@@ -14,12 +15,11 @@
     </head>
     <body>
         @include('components.nav')        
-        <div class="container">
-
-            
-        </div>
         @yield('content')
+        <div class="lol">asdasd</div>
         
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="{{ URL::asset('js/jquery-3.0.0.min.js') }}"></script>
+        <script src="{{ URL::asset('js/app.js') }}"></script>
+        <script src="{{ URL::asset('js/signup.js') }}"></script>
     </body>
 </html>
