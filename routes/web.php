@@ -16,11 +16,6 @@ Route::get('/', function () {
     //return view('courses.teacherCourse');
 });
 
-<<<<<<< HEAD
-=======
-Route::view('login','login');
-Route::view('profile', 'dashboard.profile');
->>>>>>> acbd1b5df7349abb9b7143a82a5885b4eb2507f9
 Auth::routes();
 
 Route::get('signup', function(){
