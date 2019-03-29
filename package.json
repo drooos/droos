@@ -11,6 +11,9 @@
     },
     "devDependencies": {
         "axios": "^0.18",
+        "babel-core": "^6.26.3",
+        "babel-loader": "^8.0.5",
+        "babel-preset-env": "^1.7.0",
         "bootstrap": "^4.3.1",
         "browser-sync": "^2.26.3",
         "cross-env": "^5.1",
@@ -28,6 +31,7 @@
         "sass": "^1.15.2",
         "sass-loader": "^7.1.0",
         "vue": "^2.5.17",
-        "vue-template-compiler": "^2.6.8"
+        "vue-template-compiler": "^2.6.8",
+        "webpack": "^4.29.6"
     }
 }
