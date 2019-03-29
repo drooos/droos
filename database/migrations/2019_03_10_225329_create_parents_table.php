@@ -17,7 +17,7 @@ class CreateParentsTable extends Migration
             $table->unsignedBigInteger('parentId'); // Refers to users.userId
             $table->string('parentPhone');
             $table->timestamps();
-            $table->foreign('parentId')->references('userId')->on('users');
+            $table->foreign('parentId')->references('id')->on('users');
         });
     }
 

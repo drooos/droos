@@ -16,8 +16,6 @@ Route::get('/', function () {
     //return view('courses.teacherCourse');
 });
 
-Route::view('login','login');
-Route::view('profile', 'dashboard.profile');
 Auth::routes();
 
 Route::get('signup', function(){
@@ -26,3 +24,7 @@ Route::get('signup', function(){
 Route::view('test','layouts.app');
 //Route::get('/home', 'HomeController@index')->name('home');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

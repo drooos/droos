@@ -1,10 +1,7 @@
-@extends('layout')
-@section('content')
-    <form class="login" method="POST" action="{{ route('login') }}">
-        @csrf
-        @if (Auth::check())
-            <p>{{ Auth::user()->email }}</p>
-        @endif
+<?php /* D:\PROJECTS\droos\resources\views/auth/login.blade.php */ ?>
+<?php $__env->startSection('content'); ?>
+    <form class="login" method="POST" action="<?php echo e(route('login')); ?>">
+        <?php echo csrf_field(); ?>
         <div class="margin">
         <div class="spe">تسجيل الدخول</div>
         <div class="form-group">
@@ -14,14 +11,14 @@
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="inp">
-                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ادخل البريد الالكتروني" value="{{ old('email') }}" required autofocus>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ادخل البريد الالكتروني" value="<?php echo e(old('email')); ?>" required autofocus>
                 </div>
             </div>
-            @if ($errors->has('email'))
+            <?php if($errors->has('email')): ?>
                 <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('email') }}</strong>
+                    <strong><?php echo e($errors->first('email')); ?></strong>
                 </span>
-            @endif
+            <?php endif; ?>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">كلمة السر</label>
@@ -30,14 +27,14 @@
                     <i class="fas fa-key"></i>
                 </div>
                 <div class="inp">
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="كلمة السر" required>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="كلمة السر" required>
                 </div>
             </div>
-            @if ($errors->has('password'))
+            <?php if($errors->has('password')): ?>
                 <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('password') }}</strong>
+                    <strong><?php echo e($errors->first('password')); ?></strong>
                 </span>
-            @endif
+            <?php endif; ?>
         </div>
         <div class="form-group row">
                 <div class="col-sm-1">
@@ -50,4 +47,5 @@
         </div>
         <button type="submit" class="btn app-btn-back app-btn-form">تسجيل الدخول</button>
     </form>
-@endsection
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layout', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

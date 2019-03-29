@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAssistantsTable extends Migration
+class CreateTeacherCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateAssistantsTable extends Migration
      */
     public function up()
     {
-        Schema::create('assistants', function (Blueprint $table) {
-            $table->unsignedBigInteger('assistantId'); // Refers to users.userId
-            $table->unsignedBigInteger('teacherId'); // Refers to teachers.teacherId
-            $table->timestamps();
-            $table->foreign('assistantId')->references('id')->on('users');
+        Schema::create('teacher_categories', function (Blueprint $table) {
+            $table->unsignedBigInteger('teacherId');
+            $table->unsignedBigInteger('categoryId');
             $table->foreign('teacherId')->references('teacherId')->on('teachers');
+            $table->foreign('categoryId')->references('categoryId')->on('categories');
         });
     }
 
@@ -29,6 +28,6 @@ class CreateAssistantsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('assistants');
+        Schema::dropIfExists('teacher_categories');
     }
 }

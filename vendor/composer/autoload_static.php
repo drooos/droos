@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit9bd218f517a8304e12ac42044ba84140
+class ComposerStaticInit
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -368,7 +368,6 @@ class ComposerStaticInit9bd218f517a8304e12ac42044ba84140
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -382,6 +381,7 @@ class ComposerStaticInit9bd218f517a8304e12ac42044ba84140
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\TeacherCategory' => __DIR__ . '/../..' . '/app/TeacherCategory.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\assistants' => __DIR__ . '/../..' . '/app/assistants.php',
         'App\\attendanses' => __DIR__ . '/../..' . '/app/attendanses.php',
@@ -3901,10 +3901,10 @@ class ComposerStaticInit9bd218f517a8304e12ac42044ba84140
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit9bd218f517a8304e12ac42044ba84140::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit9bd218f517a8304e12ac42044ba84140::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit9bd218f517a8304e12ac42044ba84140::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit9bd218f517a8304e12ac42044ba84140::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit::$classMap;
 
         }, null, ClassLoader::class);
     }

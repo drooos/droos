@@ -1,3 +1,4 @@
+<?php /* D:\PROJECTS\droos\resources\views/dashboard/components/sidebar.blade.php */ ?>
 <aside class="sidebar">
     <div class="container">
         <div class="row">
@@ -30,16 +31,9 @@
                 <i class="far fa-chart-pie"></i>
                 <span>حصصي</span>
             </li>
-            <li> 
+            <li>
                 <i class="far fa-chart-pie"></i>
-                <a class="" href="{{ route('logout') }}"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                 <span>تسجيل الخروج</span>
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
-                
+                <span>تسجيل الخروج</span>
             </li>
         </ul>
     </div>
