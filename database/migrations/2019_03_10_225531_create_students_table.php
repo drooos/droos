@@ -17,7 +17,7 @@ class CreateStudentsTable extends Migration
             $table->unsignedBigInteger('studentId'); // Refers to users.userId
             $table->unsignedBigInteger('parentId'); // Refers to parents.parentId
             $table->timestamps();
-            $table->foreign('studentId')->references('userId')->on('users');
+            $table->foreign('studentId')->references('id')->on('users');
             $table->foreign('parentId')->references('parentId')->on('parents');
         });
     }

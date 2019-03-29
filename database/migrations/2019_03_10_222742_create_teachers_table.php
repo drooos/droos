@@ -19,7 +19,7 @@ class CreateTeachersTable extends Migration
             $table->string('teacherDetails');
             $table->float('teacherRate');
             $table->timestamps();
-            $table->foreign('teacherId')->references('userId')->on('users');
+            $table->foreign('teacherId')->references('id')->on('users');
             //$table->foreign('teacherCategory')->references('categoryId')->on('categories');
         });
     }
