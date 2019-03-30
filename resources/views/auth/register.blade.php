@@ -3,7 +3,9 @@
 <div class=" register">
 
     <div class="row">
+        
         <div class="col-md-9 register-right">
+            
             <input type="hidden" name="userRole" value="teacher" id="userRole">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item userRole" data-role="teacher">
