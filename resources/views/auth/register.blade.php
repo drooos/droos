@@ -22,7 +22,8 @@
                     </a>
                 </li>
             </ul>
-
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <h3 class="register-heading">التسجيل كمدرس</h3>
@@ -79,7 +80,7 @@
                             </div>
 
                             <input type="submit" class="btnRegister"  value="تسجيل الحساب"/>
-
+                        </form>
                         </div>
                     </div>
                 </div>
