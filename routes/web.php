@@ -16,6 +16,12 @@ Route::get('/', function () {
     //return view('courses.teacherCourse');
 });
 
+Route::get('/home', function () {
+    $id = Auth::user()->id; 
+    return $id;
+    //return view('courses.teacherCourse');
+});
+
 Auth::routes();
 
 Route::get('signup', function(){

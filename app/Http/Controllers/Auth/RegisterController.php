@@ -99,6 +99,7 @@ class RegisterController extends Controller
             case 'student' : {
                 students::create([
                     'studentId' => $usr->id ,
+                    'parentId' => null,
                 ]);
             }
             break;
