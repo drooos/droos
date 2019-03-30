@@ -6,7 +6,6 @@
         
         <div class="col-md-9 register-right">
             
-            <input type="hidden" name="userRole" value="teacher" id="userRole">
             <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
                 <li class="nav-item userRole" data-role="teacher">
                     <a class="nav-link active">
@@ -26,6 +25,7 @@
             </ul>
             <form method="POST" action="{{ route('register') }}">
                 @csrf
+            <input type="hidden" name="userRole" value="teacher" id="userRole">
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                     <h3 class="register-heading">التسجيل كمدرس</h3>

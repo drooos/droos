@@ -72,7 +72,7 @@ class RegisterController extends Controller
             'userFname' => $data['userFname'],
             'userLname' => $data['userLname'],
             'userNumber' => $data['userNumber'],
-            'userRule' => "parent"
+            'userRule' => $data['userRole']
         ]);
 
         parents::create([
