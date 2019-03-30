@@ -36,6 +36,7 @@ return array(
     'App\\courseGroups' => $baseDir . '/app/courseGroups.php',
     'App\\courses' => $baseDir . '/app/courses.php',
     'App\\groupRequests' => $baseDir . '/app/groupRequests.php',
+    'App\\islam' => $baseDir . '/app/islam.php',
     'App\\materials' => $baseDir . '/app/materials.php',
     'App\\messages' => $baseDir . '/app/messages.php',
     'App\\parents' => $baseDir . '/app/parents.php',

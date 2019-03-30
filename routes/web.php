@@ -22,3 +22,8 @@ Route::get('signup', function(){
     return view('auth.register');
 });
 Route::view('test','layouts.app');
+
+Route::get('profile', 'Profile@getProfile');
+
+Route::get('manage_users', 'admin@getPending');
+Route::post('manage_users', 'admin@verifyAccount');

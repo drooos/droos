@@ -8,6 +8,16 @@
             <div class="col-7">
                 @include('dashboard.profileComponents.editProfile')
             </div>
+            @if($user['Role']=='instructor')
+            <div class="col-11">
+                <h1>الكورسات</h1>
+                @include('dashboard.profileComponents.profileCourses')
+            </div>
+            @endif
+            <div class="col-11">
+                <h1>الإعلانات</h1>
+                @include('dashboard.profileComponents.profileAnnouncements')
+            </div>
         </div>
     </div>
 @endsection
