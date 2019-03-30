@@ -6,6 +6,7 @@ use App\User;
 use App\parents;
 use App\teachers;
 use App\students;
+use App\pendingAccounts;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -105,6 +106,9 @@ class RegisterController extends Controller
             break;
         }
 
+        pendingAccounts::create([
+            'userId' => $usr->id ,
+        ]);
         return $usr;
         
     }

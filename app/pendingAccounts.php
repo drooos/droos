@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class pendingAccounts extends Model
 {
-    //
+    protected $guarded = [];
 }
