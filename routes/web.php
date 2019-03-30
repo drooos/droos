@@ -22,9 +22,3 @@ Route::get('signup', function(){
     return view('auth.register');
 });
 Route::view('test','layouts.app');
-//Route::get('/home', 'HomeController@index')->name('home');
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
