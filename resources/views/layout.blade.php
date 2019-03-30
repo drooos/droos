@@ -16,8 +16,6 @@
     <body>
         @include('components.nav')        
         @yield('content')
-        <div class="lol">asdasd</div>
-        
         <script src="{{ URL::asset('js/jquery-3.0.0.min.js') }}"></script>
         <script src="{{ URL::asset('js/app.js') }}"></script>
         <script src="{{ URL::asset('js/signup.js') }}"></script>

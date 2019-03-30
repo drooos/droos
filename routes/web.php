@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('timeTable.timeTable');
+    return view('layout');
     //return view('courses.teacherCourse');
 });
 

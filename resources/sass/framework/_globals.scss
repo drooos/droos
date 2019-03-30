@@ -1,15 +1,17 @@
 //@import 'imports';
 .app-btn{
     @include btn(1);
-    //background-color: #000;
 }
-
+.app-btn-2{
+    @include btn(2);
+}
 .app-btn-back{
     @include btn(2);
 }
 
 .app-btn-link{
     @include btn(3);
+    
 }
 
 .app-li-h{
