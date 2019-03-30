@@ -11,7 +11,7 @@
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="inp">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ادخل البريد الالكتروني" value="{{ old('email') }}" required autofocus>
+                    <input  name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ادخل البريد الالكتروني" value="{{ old('email') }}" required autofocus>
                 </div>
             </div>
             @if ($errors->has('email'))
@@ -27,7 +27,7 @@
                     <i class="fas fa-key"></i>
                 </div>
                 <div class="inp">
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="كلمة السر" required>
+                    <input name="pass" type="password" class="form-control" id="exampleInputPassword1" placeholder="كلمة السر" required>
                 </div>
             </div>
             @if ($errors->has('password'))
@@ -45,6 +45,6 @@
             <div class="col-sm-11">تذكرني</div>
             </div>
         </div>
-        <button type="submit" class="btn app-btn-back app-btn-form">تسجيل الدخول</button>
+        <button name="submit" type="submit" class="btn app-btn-back app-btn-form">تسجيل الدخول</button>
     </form>
 @endsection

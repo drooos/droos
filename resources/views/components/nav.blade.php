@@ -14,7 +14,7 @@
             <div class="brand">
                 <span>دروس</span>
                 <span>|</span>
-                <span>Droos</span>    
+                <span>Droos</span>
             </div>
 
             <div class="services">
@@ -23,13 +23,19 @@
                     <li>المدونة</li>
                     <li>المطورين</li>
                     <li>شركتنا</li>
+
                 </ul>
-            </div>       
+            </div>
 
             <div class="lux">
                 <ul class="contact app-li-h2">
                     <li>تواصل معنا</li>
                     <li>تجربة</li>
+
+                     @if (Auth::users() && Auth::users()->userRule == 'admin')
+
+                      <a href="{{ url('addsubjects') }}"><span><i class="icon-home"></i></span> اضافة مواد</a>
+                      @endif
                 </ul>
             </div>
 
