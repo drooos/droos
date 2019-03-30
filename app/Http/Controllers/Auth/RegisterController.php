@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\User;
 use App\parents;
+use App\teachers;
+use App\students;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -72,14 +75,35 @@ class RegisterController extends Controller
             'userFname' => $data['userFname'],
             'userLname' => $data['userLname'],
             'userNumber' => $data['userNumber'],
-            'userRule' => "parent"
+            'userRule' => $data['userRole']
         ]);
 
-        parents::create([
-            'parentId' => $usr->id ,
-            'parentPhone' => "123456",
-        ]);
-        
+        switch ( $data['userRole'] ){
+            case 'teacher' : {
+                teachers::create([
+                    'teacherId' => $usr->id ,
+                    'teacherDetails' => $data['userNumber'],
+                    'teacherRate' => 0.0
+                ]);
+            }
+            break;
+
+            case 'parent' : {
+                parents::create([
+                    'parentId' => $usr->id ,
+                    'parentPhone' => $data['userNumber'],
+                ]);
+            }
+            break;
+
+            case 'student' : {
+                students::create([
+                    'studentId' => $usr->id ,
+                ]);
+            }
+            break;
+        }
+
         return $usr;
         
     }

@@ -1,0 +1,18 @@
+command : composer install
+
+.env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=droos
+DB_USERNAME=root
+DB_PASSWORD=
+
+git branch yourbranch
+git checkout yourbranch
+
+
+to submit you code 
+git add *
+git commit -m "your message"
+git push origin yourbranch

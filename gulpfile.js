@@ -16,7 +16,8 @@ var     gulp = require('gulp'),
         gulp.task('watch',function(){
         /*      browserSync.init({
                 server:'./test.html'
-        z    });*/
+                });*/
+                
         gulp.watch('resources/sass/**/*.scss',gulp.series('sasss'));
         //        gulp.watch('resources/sass/**/*.scss').on('change', browserSync.reload);
         })
@@ -42,3 +43,5 @@ gulp.task('default', function(){
     phpServe();
    // sassWatch();
 });
+
+

@@ -12,10 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('auth/login');
+    return view('timeTable.timeTable');
+    //return view('courses.teacherCourse');
 });
-
-Route::view('login','login');
 
 Auth::routes();
 
@@ -23,9 +22,3 @@ Route::get('signup', function(){
     return view('auth.register');
 });
 Route::view('test','layouts.app');
-//Route::get('/home', 'HomeController@index')->name('home');
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

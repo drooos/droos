@@ -5,6 +5,7 @@
 @import 'includes/login';
 @import 'includes/signup.scss';
 @import 'framework/imports';
+//@import 'timeTableStyle/timeTableStyle';
 
 *{
   font-family: 'Cairo', sans-serif;
@@ -22,5 +23,6 @@ a{
   color:$font-color-i;
   &:hover{
     color:$font-color-i;
+    
   }
 }

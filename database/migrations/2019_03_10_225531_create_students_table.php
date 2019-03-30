@@ -15,7 +15,7 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->unsignedBigInteger('studentId'); // Refers to users.userId
-            $table->unsignedBigInteger('parentId'); // Refers to parents.parentId
+            $table->unsignedBigInteger('parentId')->default(0); // Refers to parents.parentId
             $table->timestamps();
             $table->foreign('studentId')->references('id')->on('users');
             $table->foreign('parentId')->references('parentId')->on('parents');
