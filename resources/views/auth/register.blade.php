@@ -34,16 +34,36 @@
                     <div class="row register-form">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="الاسم الاول*" value=""  name="userFname"/>
+                                <input type="text" class="form-control{{ $errors->has('userFname') ? ' is-invalid' : '' }}" placeholder="الاسم الاول*" value=""  name="userFname"/>
+                                @if ($errors->has('userFname'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('userFname') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="اسم العائلة*" value="" name="userLname"/>
+                                <input type="text" class="form-control{{ $errors->has('userLname') ? ' is-invalid' : '' }}" placeholder="اسم العائلة*" value="" name="userLname"/>
+                                @if ($errors->has('userLname'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('userLname') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" placeholder="كلمة المرور *" value="" name="password" />
+                                <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" placeholder="كلمة المرور *" value="" name="password" />
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control"  placeholder="تاكيد كلمة المرور *" value="" name="repassword"/>
+                                <input type="password" class="form-control{{ $errors->has('repassword') ? ' is-invalid' : '' }}"  placeholder="تاكيد كلمة المرور *" value="" name="repassword"/>
+                                @if ($errors->has('repassword'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('repassword') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <div class="row">
@@ -65,10 +85,20 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="email" class="form-control" placeholder="البريد الالكتروني *" value="" name="email"/>
+                                <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="البريد الالكتروني *" value="" name="email"/>
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="form-group">
-                                <input type="text" maxlength="12" name="userNumber" class="form-control" placeholder="رقم هاتفك الجوال *" value=""/>
+                                <input type="text" maxlength="12" name="userNumber" class="form-control{{ $errors->has('userNumber') ? ' is-invalid' : '' }}" placeholder="رقم هاتفك الجوال *" value=""/>
+                                @if ($errors->has('userNumber'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('userNumber') }}</strong>
+                                    </span>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <select class="form-control" name="secQ">
