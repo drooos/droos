@@ -76,3 +76,26 @@ div.profile-card{
         }
     }
 }
+
+//start of edit profile style
+div.edit-profile{
+    background-color: $box-color;
+    padding: 30px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 30px #ccc;
+    label{
+        color:$side-font-2;
+    }
+    h4{
+        color:$side-font-2;
+    }
+    button{
+        margin: auto!important;
+        background-color: $main-color;
+        color: $font-color;
+        &:hover{
+            background-color: $base-color;
+            color:#222;
+        }
+    }
+}
