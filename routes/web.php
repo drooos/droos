@@ -10,20 +10,26 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('timeTable.timeTable');
-    //return view('courses.teacherCourse');
-});
-
 Auth::routes();
 
+Route::get('/', function () {
+    return view('layout');
+});
+
+Route::get('home', function() {
+    return View('dashboard.profile');
+});
+
+Route::get('/profile/{id}', function ($id) {
+    return view('dashboard.profile')->with('id',$id);
+});
+
 Route::get('signup', function(){
+
     return view('auth.register');
 });
+
 Route::view('test','layouts.app');
 
-Route::get('profile', 'Profile@getProfile');
-
-Route::get('manage_users', 'admin@getPending');
-Route::post('manage_users', 'admin@verifyAccount');
+Route::get('get', 'Admin@getPending');
+Route::get('active', 'Admin@verifyAccount');

@@ -4,7 +4,7 @@
     <div class="row">
     	@foreach ($users as $user)
         <div class="col-12">
-                <h1><button onclick="approveAccount({{$user->userId}})">Approve</button> {{$user->User->email}}</h1>
+            <h1><button onclick="approveAccount({{$user->userId}})">Approve</button> {{$user->User->email}}</h1>
         </div>
         @endforeach
     </div>
