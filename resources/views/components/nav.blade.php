@@ -10,13 +10,13 @@
                 </div>
                 </a>
             </div>
-
+            
             <div class="brand">
                 <span>دروس</span>
                 <span>|</span>
                 <span>Droos</span>    
             </div>
-
+            
             <div class="services">
                 <ul class="services-content app-li-h">
                     <li>منتجنا</li>
@@ -35,7 +35,7 @@
 
             <div class="logs">
                 <a href="/login"><button class="btn app-btn mar-lf-10"><i class="fa fa-sign-in-alt"></i> دخول</button></a>
-                <button class="btn app-btn-back"><a href="/signup"><i class="fa fa-user-plus"></i>حساب جديد</a></button>
+                <button class="btn app-btn-2"><a href="/signup"><i class="fa fa-user-plus"></i>حساب جديد</a></button>
             </div>
 
         </div>

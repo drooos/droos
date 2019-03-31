@@ -10,12 +10,13 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/', function () {
-    return view('timeTable.timeTable');
-    //return view('courses.teacherCourse');
+    return view('layout');
 });
 
+<<<<<<< HEAD
 Route::get('/home', function () {
     $id = Auth::user()->id; 
     return $id;
@@ -23,8 +24,22 @@ Route::get('/home', function () {
 });
 
 Auth::routes();
+=======
+Route::get('home', function() {
+    return View('dashboard.profile');
+});
+
+Route::get('/profile/{id}', function ($id) {
+    return view('dashboard.profile')->with('id',$id);
+});
+>>>>>>> master
 
 Route::get('signup', function(){
+
     return view('auth.register');
 });
+
 Route::view('test','layouts.app');
+
+Route::get('get', 'Admin@getPending');
+Route::get('active', 'Admin@verifyAccount');

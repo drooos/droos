@@ -390,6 +390,7 @@ class ComposerStaticInit77d28306a3e64c0064159144b442db73
         'App\\courseGroups' => __DIR__ . '/../..' . '/app/courseGroups.php',
         'App\\courses' => __DIR__ . '/../..' . '/app/courses.php',
         'App\\groupRequests' => __DIR__ . '/../..' . '/app/groupRequests.php',
+        'App\\islam' => __DIR__ . '/../..' . '/app/islam.php',
         'App\\materials' => __DIR__ . '/../..' . '/app/materials.php',
         'App\\messages' => __DIR__ . '/../..' . '/app/messages.php',
         'App\\parents' => __DIR__ . '/../..' . '/app/parents.php',

@@ -1,6 +1,12 @@
+.cont{
+    margin-right: 300px!important;
+}
 .sidebar{
+    
     background-color:$side-color;
     height: 100vh!important;
+    position: fixed;
+
     width: 300px;
     span.brand{
         font-size: 18px;
@@ -15,7 +21,7 @@
         }
     }
     ul.side-list{
-        //padding: 10px;
+        padding: 10px;
         border-top:1px solid $side-font;
         color:$side-font;
         font-size: 18px;
