@@ -16,7 +16,7 @@
             </li>
             <li class="active">
                 <i class="far fa-user"></i>
-                <span>الصفحة الشخصية</span>
+                <span><a href="/profile"> الصفحة الشخصية</a></span>
             </li>
             <li>
                 <i class="far fa-bell"></i>
@@ -28,7 +28,7 @@
             </li>
             <li>
                 <i class="far fa-chart-pie"></i>
-                <span>حصصي</span>
+                <span><a href="/timeTable">حصصي</a></span>
             </li>
             <li> 
                 <i class="far fa-chart-pie"></i>

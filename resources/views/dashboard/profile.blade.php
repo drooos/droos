@@ -2,7 +2,6 @@
 @section('homeContent')
     <div class="container home">
         <div class="row">
-            {{ Auth::user()->userRole }}
             <div class="col-4 ">
                 @include('dashboard.profileComponents.profileDetails')
             </div>
