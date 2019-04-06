@@ -18,13 +18,16 @@ Route::get('/', function () {
 });
 Route::get('/home', 'Profile@getProfile');
 
-Route::get('logout', function(){
-    return view('dashboard.components.logout');
-});
-//Route::view('login','login');
 
 Route::post('addsubjects',function(){
     
+Route::get('/home', function () {
+    $id = Auth::user()->id; 
+    return $id;
+    //return view('courses.teacherCourse');
+});
+
+Auth::routes();
 Route::get('home', function() {
     return View('dashboard.profile');
 });
@@ -32,6 +35,7 @@ Route::get('home', function() {
 Route::get('/profile/{id}', function ($id) {
     return view('dashboard.profile')->with('id',$id);
 });
+
 
   $subject=new App\categories;
   $subject->categoryName = Input::get('subject');
