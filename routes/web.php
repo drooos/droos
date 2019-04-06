@@ -16,7 +16,6 @@ Route::get('/', function () {
     return view('layout');
 });
 
-<<<<<<< HEAD
 Route::get('/home', function () {
     $id = Auth::user()->id; 
     return $id;
@@ -24,15 +23,6 @@ Route::get('/home', function () {
 });
 
 Auth::routes();
-=======
-Route::get('home', function() {
-    return View('dashboard.profile');
-});
-
-Route::get('/profile/{id}', function ($id) {
-    return view('dashboard.profile')->with('id',$id);
-});
->>>>>>> master
 
 Route::get('signup', function(){
 
