@@ -1,0 +1,9 @@
+.class {
+  direction: ltr; }
+
+.class-parent {
+  font-size: 10; }
+  .class-parent .class-child {
+    background-color: #000; }
+    .class-parent .class-child span.mo#mo {
+      color: #fff; }
