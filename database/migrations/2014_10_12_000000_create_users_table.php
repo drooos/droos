@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('userNumber');
-            $table->boolean('verified');
+            $table->boolean('verified')->default(false);
             $table->enum('userRule', array('admin','teacher','assistant','parent','student'));
             $table->rememberToken();
             $table->timestamps();
