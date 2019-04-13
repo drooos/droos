@@ -1,3 +1,6 @@
+
+<?php $user = App\Http\Controllers\users::getInfoForActiveUser();?>
+
 <aside class="sidebar">
     <div class="container">
         <div class="row">
@@ -8,31 +11,27 @@
                 </span>
             </div>
         </div>
-    
+        <div class="img">
+            <div class="img-cir">
+                <img src="imgs/male.png" alt="">
+            </div>
+        </div>
         <ul class="side-list remove-li">
-            <li class="active">
-                <i class="far fa-tachometer-alt"></i>
-                <span>الرئيسية</span>
-            </li>
-            <li>
-                <i class="far fa-user"></i>
-                <span>الصفحة الشخصية</span>
-            </li>
-            <li>
-                <i class="far fa-bell"></i>
-                <span>الاشعارات</span>
-            </li>
-            <li>
+                <div class="name">
+                        <p class="name">{{ $user[0]['userFname'] }} {{ $user[0]['userLname'] }} </p>
+                </div>
+            @foreach (\App\Http\Controllers\users::getSide() as $item)
+                <li>
+                    <i class="{{ $item['icon'] }}"></i>
+                    <span><a href="{{ $item['link'] }}">{{ $item['title'] }}</a></span>
+                </li>
+            @endforeach
+            <li> 
                 <i class="far fa-chart-pie"></i>
-                <span>متابعة المهام</span>
-            </li>
-            <li>
-                <i class="far fa-chart-pie"></i>
-                <span>حصصي</span>
-            </li>
-            <li>
-                <i class="far fa-chart-pie"></i>
-                <span>تسجيل الخروج</span>
+                <a class="" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><span>تسجيل الخروج</span></a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </li>
         </ul>
     </div>

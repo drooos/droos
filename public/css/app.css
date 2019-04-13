@@ -7,14 +7,33 @@
 @import url("https://fonts.googleapis.com/css?family=Cairo");
 .app-btn {
   border: 1px solid #38c172;
+  color: #fff !important;
+  background-color: #38c172 !important;
   color: #38c172; }
   .app-btn:hover {
-    background-color: #38c172;
-    color: #fff; }
+    background-color: #161616 !important;
+    color: #fff;
+    border: 1px solid #38c172 !important;
+    box-shadow: 0px 0px 10px #38c172 !important; }
+
+.app-btn-2 {
+  background-color: #161616 !important;
+  border: 0px 0px 10px #38c172 !important;
+  color: #fff;
+  box-shadow: 0px 0px 3px #38c172 !important; }
+  .app-btn-2:hover {
+    border: 1px double #38c172;
+    background-color: #fff;
+    color: #38c172; }
+    .app-btn-2:hover a {
+      color: #38c172;
+      text-decoration: none; }
 
 .app-btn-back {
-  background-color: #38c172;
-  color: #fff; }
+  background-color: #161616 !important;
+  border: 0px 0px 10px #38c172 !important;
+  color: #fff;
+  box-shadow: 0px 0px 3px #38c172 !important; }
   .app-btn-back:hover {
     border: 1px double #38c172;
     background-color: #fff;
@@ -7342,14 +7361,33 @@ nav.navbar {
 */
 .app-btn {
   border: 1px solid #38c172;
+  color: #fff !important;
+  background-color: #38c172 !important;
   color: #38c172; }
   .app-btn:hover {
-    background-color: #38c172;
-    color: #fff; }
+    background-color: #161616 !important;
+    color: #fff;
+    border: 1px solid #38c172 !important;
+    box-shadow: 0px 0px 10px #38c172 !important; }
+
+.app-btn-2 {
+  background-color: #161616 !important;
+  border: 0px 0px 10px #38c172 !important;
+  color: #fff;
+  box-shadow: 0px 0px 3px #38c172 !important; }
+  .app-btn-2:hover {
+    border: 1px double #38c172;
+    background-color: #fff;
+    color: #38c172; }
+    .app-btn-2:hover a {
+      color: #38c172;
+      text-decoration: none; }
 
 .app-btn-back {
-  background-color: #38c172;
-  color: #fff; }
+  background-color: #161616 !important;
+  border: 0px 0px 10px #38c172 !important;
+  color: #fff;
+  box-shadow: 0px 0px 3px #38c172 !important; }
   .app-btn-back:hover {
     border: 1px double #38c172;
     background-color: #fff;
