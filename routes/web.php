@@ -10,28 +10,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {return view('layout');});
-Route::get('/home', 'users@redirectUser');
-Route::get('/logout', 'users@logout');
-Route::get('login', function(){return view('auth.login');});
-Auth::routes();
 <<<<<<< HEAD
+use Illuminate\Support\Facades\Input;
+=======
+Auth::routes();
+>>>>>>> be780c091d2cf871ccd17b82c624672660686126
 
 Route::get('/', function () {
     return view('layout');
 });
 Route::get('/home', 'Profile@getProfile');
 
+<<<<<<< HEAD
+//Route::view('login','login');
+Route::post('login',function(){
 
-Route::post('addsubjects',function(){
-    
-Route::get('/home', function () {
-    $id = Auth::user()->id; 
-    return $id;
-    //return view('courses.teacherCourse');
 });
-
-Auth::routes();
+Route::post('addsubjects',function(){
+=======
 Route::get('home', function() {
     return View('dashboard.profile');
 });
@@ -39,7 +35,7 @@ Route::get('home', function() {
 Route::get('/profile/{id}', function ($id) {
     return view('dashboard.profile')->with('id',$id);
 });
-
+>>>>>>> master
 
   $subject=new App\categories;
   $subject->categoryName = Input::get('subject');
@@ -63,7 +59,9 @@ Route::get('signup', function(){
 });
 
 Route::view('test','layouts.app');
+<<<<<<< HEAD
 //Route::get('/home', 'HomeController@index')->name('home');
+=======
 
 =======
 Route::get('signup', function(){return view('auth.register');});
@@ -71,10 +69,4 @@ Route::view('test','courses.courseActions.addCourse');
 >>>>>>> 39140abfe87d6596442a29bc37018829fd9d7b2a
 Route::get('get', 'Admin@getPending');
 Route::get('active', 'Admin@verifyAccount');
-Route::get('profile', 'Profile@getProfile');
-Route::get('manage_users', 'admin@getPending');
-Route::post('manage_users', 'admin@verifyAccount');
-Route::get('timeTable',function(){return view('timeTable.timeTable');});
-
-
-Route::get('testc', 'users@getInfoForActiveUser');
+>>>>>>> be780c091d2cf871ccd17b82c624672660686126
