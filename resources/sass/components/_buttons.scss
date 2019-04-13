@@ -1,15 +1,22 @@
 @mixin btn($val) {
+    
     @if($val == 1){
         border: 1px solid $main-color;
+        color: $font-color-i!important;
+        background-color: $main-color!important;
         color:$main-color;
         &:hover{
-            background-color: $main-color; 
+            background-color: $back-color!important; 
             color: $font-color-i;
+            border: 1px solid $main-color!important;
+            box-shadow: 0px 0px 10px $main-color!important;
         }
     }
     @if($val == 2){
-        background-color: $main-color; 
+        background-color: $back-color!important;
+        border: 0px 0px 10px $main-color!important;
         color: $font-color-i;
+        box-shadow: 0px 0px 3px $main-color!important;
         &:hover{
             border: 1px double $main-color;
             background-color: $font-color-i; 

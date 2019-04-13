@@ -2,6 +2,9 @@
 @section('content')
     <form class="login" method="POST" action="{{ route('login') }}">
         @csrf
+        @if (Auth::check())
+            <p>{{ Auth::user()->email }}</p>
+        @endif
         <div class="margin">
         <div class="spe">تسجيل الدخول</div>
         <div class="form-group">
@@ -11,7 +14,7 @@
                     <i class="fas fa-user"></i>
                 </div>
                 <div class="inp">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ادخل البريد الالكتروني" value="{{ old('email') }}" required autofocus>
+                    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="ادخل البريد الالكتروني" value="{{ old('email') }}" required autofocus>
                 </div>
             </div>
             @if ($errors->has('email'))
@@ -27,7 +30,7 @@
                     <i class="fas fa-key"></i>
                 </div>
                 <div class="inp">
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="كلمة السر" required>
+                    <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="كلمة السر" required>
                 </div>
             </div>
             @if ($errors->has('password'))

@@ -15,12 +15,12 @@ class CreateTeachersTable extends Migration
     {
         Schema::create('teachers', function (Blueprint $table) {
             $table->unsignedBigInteger('teacherId'); // Refers to users.userId
-            $table->unsignedBigInteger('teacherCategory');
+            //$table->unsignedBigInteger('teacherCategory');
             $table->string('teacherDetails');
             $table->float('teacherRate');
             $table->timestamps();
-            $table->foreign('teacherId')->references('userId')->on('users');
-            $table->foreign('teacherCategory')->references('categoryId')->on('categories');
+            $table->foreign('teacherId')->references('id')->on('users');
+            //$table->foreign('teacherCategory')->references('categoryId')->on('categories');
         });
     }
 

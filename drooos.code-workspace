@@ -1,0 +1,17 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+<<<<<<< HEAD
+
+		"editor.fontLigatures": true
+=======
+		"editor.fontFamily": "Fira Code",
+		"editor.fontLigatures": true,
+		"git.ignoreLimitWarning": true
+>>>>>>> 39140abfe87d6596442a29bc37018829fd9d7b2a
+	}
+}
