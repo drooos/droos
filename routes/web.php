@@ -26,3 +26,4 @@ Route::get('timeTable',function(){return view('timeTable.timeTable');});
 
 
 Route::get('testc', 'users@getInfoForActiveUser');
+
