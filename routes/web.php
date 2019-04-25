@@ -15,7 +15,6 @@ Route::get('/home', 'users@redirectUser');
 Route::get('/logout', 'users@logout');
 Route::get('login', function(){return view('auth.login');});
 Auth::routes();
-<<<<<<< HEAD
 
 Route::get('/', function () {
     return view('layout');
@@ -65,10 +64,8 @@ Route::get('signup', function(){
 Route::view('test','layouts.app');
 //Route::get('/home', 'HomeController@index')->name('home');
 
-=======
 Route::get('signup', function(){return view('auth.register');});
 Route::view('test','courses.courseActions.addCourse');
->>>>>>> 39140abfe87d6596442a29bc37018829fd9d7b2a
 Route::get('get', 'Admin@getPending');
 Route::get('active', 'Admin@verifyAccount');
 Route::get('profile', 'Profile@getProfile');
