@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -10,26 +9,57 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Route::get('/', function () {return view('layout');});
+Route::get('/home', 'users@redirectUser');
+Route::get('/logout', 'users@logout');
+Route::get('login', function(){return view('auth.login');});
 Auth::routes();
-
 Route::get('/', function () {
     return view('layout');
 });
-
+Route::get('/home', 'Profile@getProfile');
+Route::post('addsubjects',function(){
+    
 Route::get('/home', function () {
     $id = Auth::user()->id; 
     return $id;
     //return view('courses.teacherCourse');
 });
-
 Auth::routes();
-
+Route::get('home', function() {
+    return View('dashboard.profile');
+});
+Route::get('/profile/{id}', function ($id) {
+    return view('dashboard.profile')->with('id',$id);
+});
+  $subject=new App\categories;
+  $subject->categoryName = Input::get('subject');
+  $subject->created_at = Input::get('fdate');
+  $subject->updated_at= Input::get('ldate');
+  $subject->save();
+  return view('auth.addsubjects');
+}
+);
+Route::get('login', function(){
+    return view('auth.login');
+});
+Auth::routes();
+Route::get('addsubjects', function(){
+    return view('auth.addsubjects');
+});
 Route::get('signup', function(){
-
     return view('auth.register');
 });
-
 Route::view('test','layouts.app');
-
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('signup', function(){return view('auth.register');});
+Route::view('test','courses.courseActions.addCourse');
 Route::get('get', 'Admin@getPending');
 Route::get('active', 'Admin@verifyAccount');
+Route::get('profile', 'Profile@getProfile');
+Route::get('manage_users', 'admin@getPending');
+Route::post('manage_users', 'admin@verifyAccount');
+Route::get('timeTable',function(){return view('timeTable.timeTable');});
+Route::get('testc', 'users@getInfoForActiveUser');
+
+Route::post('Profile/Edit','HomeController@updateTeacher');

@@ -34,7 +34,7 @@
                     <div class="row register-form">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control{{ $errors->has('userFname') ? ' is-invalid' : '' }}" placeholder="الاسم الاول*" value=""  name="userFname"/>
+                                <input type="text" class="form-control{{ $errors->has('userFname') ? ' is-invalid' : '' }}" placeholder="الاسم الاول*" value="{{ old('userFname') }}"  name="userFname"/>
                                 @if ($errors->has('userFname'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('userFname') }}</strong>
@@ -42,7 +42,7 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <input type="text" class="form-control{{ $errors->has('userLname') ? ' is-invalid' : '' }}" placeholder="اسم العائلة*" value="" name="userLname"/>
+                                <input type="text" class="form-control{{ $errors->has('userLname') ? ' is-invalid' : '' }}" placeholder="اسم العائلة*" value="{{ old('userLname') }}" name="userLname"/>
                                 @if ($errors->has('userLname'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('userLname') }}</strong>
@@ -58,10 +58,10 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control{{ $errors->has('repassword') ? ' is-invalid' : '' }}"  placeholder="تاكيد كلمة المرور *" value="" name="repassword"/>
-                                @if ($errors->has('repassword'))
+                                <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}"  placeholder="تاكيد كلمة المرور *" value="" name="password_confirmation"/>
+                                @if ($errors->has('password'))
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('repassword') }}</strong>
+                                        <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -69,13 +69,13 @@
                                 <div class="row">
                                     <div class="maxl col-3">
                                         <label class="radio inline"> 
-                                            <input type="radio" name="gender" value="male" checked>
+                                            <input type="radio" name="gender" value="1" checked>
                                             <span> ذكر </span> 
                                         </label>
                                     </div>
                                     <div class="col-3">
                                         <label class="radio inline"> 
-                                            <input type="radio" name="gender" value="female">
+                                            <input type="radio" name="gender" value="2">
                                             <span>انثي </span> 
                                         </label>
                                     </div>
@@ -85,7 +85,7 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="البريد الالكتروني *" value="" name="email"/>
+                                <input type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="البريد الالكتروني *" value="{{ old('email') }}" name="email"/>
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -101,16 +101,26 @@
                                 @endif
                             </div>
                             <div class="form-group">
-                                <select class="form-control" name="secQ">
+                                <select class="form-control{{ $errors->has('secQ') ? ' is-invalid' : '' }}" name="secQ">
                                     <option class="hidden"  selected disabled>اختار سؤال الامان</option>
-                                    <option>ما هو عيد ميلادك؟</option>
-                                    <option>ما هو رقم هاتفك؟</option>
-                                    <option>ما هو حيوانك المفضل؟</option>
+                                    <option value="1">ما هو عيد ميلادك؟</option>
+                                    <option value="2">ما هو رقم هاتفك؟</option>
+                                    <option value="3">ما هو حيوانك المفضل؟</option>
                                 </select>
+                                @if ($errors->has('secQ'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('secQ') }}</strong>
+                                    </span>
+                                @endif
                             </div>
 
                             <div class="form-group">
-                                <input type="text" class="form-control" placeholder="ادخل اجابتك *" value="" name="secAns"/>
+                                <input type="text" class="form-control{{ $errors->has('secAns') ? ' is-invalid' : '' }}" placeholder="ادخل اجابتك *" value="" name="secAns"/>
+                                @if ($errors->has('secAns'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('secAns') }}</strong>
+                                    </span>
+                                @endif
                             </div>
 
                             <input type="submit" class="btnRegister"  value="تسجيل الحساب"/>

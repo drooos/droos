@@ -55,10 +55,12 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required', 'string', 'min:8' , 'confirmed'],
             'userFname' => ['required', 'string', 'max:255'],
             'userLname' => ['required', 'string', 'max:255'],
             'userNumber' => ['required', 'string', 'max:255'],
+            'secQ' => ['required'],
+            'secAns' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -76,7 +78,10 @@ class RegisterController extends Controller
             'userFname' => $data['userFname'],
             'userLname' => $data['userLname'],
             'userNumber' => $data['userNumber'],
-            'userRule' => $data['userRole']
+            'userRule' => $data['userRole'],
+            'gender' => $data['gender'],////////..
+            'secQues' => $data['secQ'],////////..
+            'secAns' => $data['secAns'],////////..
         ]);
 
         switch ( $data['userRole'] ){
@@ -100,7 +105,7 @@ class RegisterController extends Controller
             case 'student' : {
                 students::create([
                     'studentId' => $usr->id ,
-                    'parentId' => null,
+                    'parentId'=> $usr->id ,
                 ]);
             }
             break;

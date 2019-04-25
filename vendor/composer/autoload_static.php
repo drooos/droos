@@ -362,6 +362,7 @@ class ComposerStaticInit77d28306a3e64c0064159144b442db73
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
+        'App\\Http\\Controllers\\Admin' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
@@ -369,6 +370,7 @@ class ComposerStaticInit77d28306a3e64c0064159144b442db73
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\profile' => __DIR__ . '/../..' . '/app/Http/Controllers/Profile.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\CheckForMaintenanceMode' => __DIR__ . '/../..' . '/app/Http/Middleware/CheckForMaintenanceMode.php',
@@ -390,7 +392,6 @@ class ComposerStaticInit77d28306a3e64c0064159144b442db73
         'App\\courseGroups' => __DIR__ . '/../..' . '/app/courseGroups.php',
         'App\\courses' => __DIR__ . '/../..' . '/app/courses.php',
         'App\\groupRequests' => __DIR__ . '/../..' . '/app/groupRequests.php',
-        'App\\islam' => __DIR__ . '/../..' . '/app/islam.php',
         'App\\materials' => __DIR__ . '/../..' . '/app/materials.php',
         'App\\messages' => __DIR__ . '/../..' . '/app/messages.php',
         'App\\parents' => __DIR__ . '/../..' . '/app/parents.php',

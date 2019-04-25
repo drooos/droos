@@ -1,0 +1,4 @@
+@include('dashboard.profileComponents.profileDetails')
+//@include('dashboard.profileComponents.editProfile')
+//@include('dashboard.profileComponents.profileCourses')
+//@include('dashboard.profileComponents.profileAnnouncements')

@@ -1,0 +1,6 @@
+adminModules.manage_users
+components.nav
+courses.courseActions.addCourse
+courses.courseActions.courseTeacherCard
+courses.teacherCourse
+dashboard.components.dashNav
