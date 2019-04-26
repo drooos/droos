@@ -33,7 +33,7 @@ class users extends Controller
                 $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"/home"];
                 $navContent[] = ["icon"=>"far fa-user","title"=>" الصفحة الشخصية","link"=>"/profile"];
                 $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"/notification"];
-                $navContent[] = ["icon"=>"far fa-chart-pie","title"=>" حصصي","link"=>"/timeTable"];
+                $navContent[] = ["icon"=>"far fa-chart-pie","title"=>" جدول الحصص","link"=>"/timeTable"];
                 
             break;
             case "Admin":
