@@ -17,7 +17,7 @@ class CreateTeachersTable extends Migration
             $table->unsignedBigInteger('teacherId'); // Refers to users.userId
             //$table->unsignedBigInteger('teacherCategory');
             $table->string('teacherDetails');
-            $table->float('teacherRate');
+            $table->float('teacherRate')->default(0.0);
             $table->timestamps();
             $table->foreign('teacherId')->references('id')->on('users');
             //$table->foreign('teacherCategory')->references('categoryId')->on('categories');

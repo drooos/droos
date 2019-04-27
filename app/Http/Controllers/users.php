@@ -14,15 +14,18 @@ class users extends Controller
         this function know what is user Role
     */
     public static function getUserRole(){
-        return (int)Auth::user()->userRule;
+        return Auth::user()->userRule;
     }
     
     public static function redirectUser(){
         switch( self::getUserRole() ){
             case "teacher":
-                return view('dashboard.profile');
+                return view('profiles.profile');
             break;
-            default: break;
+            
+            default: 
+            return view('profiles.profile');
+            break;
         }
     }
 
@@ -33,7 +36,7 @@ class users extends Controller
                 $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"/home"];
                 $navContent[] = ["icon"=>"far fa-user","title"=>" الصفحة الشخصية","link"=>"/profile"];
                 $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"/notification"];
-                $navContent[] = ["icon"=>"far fa-chart-pie","title"=>" حصصي","link"=>"/timeTable"];
+                $navContent[] = ["icon"=>"far fa-chart-pie","title"=>" جدول الحصص","link"=>"/timeTable"];
                 
             break;
             case "Admin":
@@ -49,12 +52,17 @@ class users extends Controller
                 $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"/notification"];
                 $navContent[] = ["icon"=>"fal fa-plus-circle","title"=>"جدولي","link"=>"/addnewadmin"];
             break;
+            case "parent":
+                $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"dashboard"];
+                $navContent[] = ["icon"=>"far fa-user","title"=>" الصفحة الشخصية","link"=>"/profile"];
+                $navContent[] = ["icon"=>"fal fa-child","title"=>"ابنائي","link"=>"/parent/mySons"];
+                $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"notification"];
+            break;
         }
         return $navContent;
     }
         
     public static function getSide(){
-        //return self::getUserSideContent(self::getUserRole());
         return self::getUserSideContent(self::getUserRole());
     }
 
@@ -65,6 +73,6 @@ class users extends Controller
     }
 
     public function logout(){
-        return view('dashboard.components.logout');
+        return view('includes.components.logout');
     }
 }

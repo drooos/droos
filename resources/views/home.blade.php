@@ -23,10 +23,10 @@
     <body>
         <div class="row">
             <div class="side">
-                @include('dashboard.components.sidebar')
+                @include('includes.components.sidebar')
             </div>
             <div class=" test cont">
-                @include('dashboard.components.dashNav')
+                @include('includes.components.dashNav')
                 @yield('homeContent')
             </div>
         </div>
