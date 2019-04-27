@@ -26,7 +26,7 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
-    "extra": {
+    "extra": {  
         "laravel": {
             "dont-discover": []
         }
@@ -43,6 +43,7 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
+            
         }
     },
     "minimum-stability": "dev",

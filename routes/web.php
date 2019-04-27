@@ -19,6 +19,10 @@ Route::get('parent/mySons','parents@parent_sons');
 // time table
 Route::get('timeTable',function(){return view('timeTable.timeTable');});
 
+//teacher modules
+Route::view('teacher/addCourse', 'courses.courseActions.addCourse');
+Route::post('teacher/addCourse', 'Course@add_new_course');
+
 //admin routs
 Route::get('manage_users', 'admin@getPending');
 Route::post('manage_users', 'admin@verifyAccount');

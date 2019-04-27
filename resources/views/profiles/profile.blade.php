@@ -6,7 +6,7 @@
                 @include('profiles.profileComponents.profileDetails')
             </div>
             <div class="col-7">
-                /////////
+                @include('teacherModules.teacher_editProfile')
             </div>
             
             <div class="col-11">

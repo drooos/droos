@@ -12,11 +12,6 @@ class usersTable extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
-        $i = 100;
-        while($i--){
-            DB::table('users')->insert([
-=======
         $lastId = DB::table('users')->insertGetId([
             'userFname' => 'admin',
             'userLname' => 'admin',
@@ -33,17 +28,10 @@ class usersTable extends Seeder
         while($i--){
             $actor = $this->actor[rand(0,4)];
             $lastId = DB::table('users')->insertGetId([
->>>>>>> body
                 'userFname' => Str::random(10),
                 'userLname' => Str::random(10),
                 'userNumber' => "011111111",
                 'gender' => 0,
-<<<<<<< HEAD
-                'userRule'=> $this->actor[rand(0,4)],
-                'email' => Str::random(10).'@gmail.com',
-                'password' => bcrypt('123456789'),
-            ]);    
-=======
                 'secQues'=>1,
                 'secAns'=> "lol",
                 'userRule'=> $actor,
@@ -75,7 +63,6 @@ class usersTable extends Seeder
                 break;
             }
             
->>>>>>> body
         }
         
     }

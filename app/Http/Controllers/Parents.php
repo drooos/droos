@@ -7,7 +7,7 @@ use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+
 class Parents extends Controller
 {
     

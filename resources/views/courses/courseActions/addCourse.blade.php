@@ -1,6 +1,11 @@
+
+@extends('home')
+@section('homeContent')
 <div class="edit-profile ">
     <h4>اضافة مادة دراسية</h4>
-    <form action="">
+    <form action="/teacher/addCourse" method="POST">
+    @csrf
+        
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -38,7 +43,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label for="about"> الوصف</label>
-                        <textarea class="form-control" id="about" rows="4"></textarea>
+                        <textarea class="form-control" id="about" rows="4" name="desc"></textarea>
                     </div>
                 </div>
             </div>
@@ -48,3 +53,6 @@
         </div>
     </form>
 </div>
+
+
+@endsection
