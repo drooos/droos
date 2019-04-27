@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -39,6 +40,8 @@ class CreateUsersTable extends Migration
     }
 }
 =======
+=======
+>>>>>>> body
 <?php
 
 use Illuminate\Support\Facades\Schema;
@@ -61,9 +64,16 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('userNumber');
+<<<<<<< HEAD
             $table->integer('gender');/////
             $table->integer('secQues');/////
             $table->string('secAns');//////
+=======
+            $table->integer('gender');
+            $table->integer('secQues');
+            $table->string('secAns');
+            $table->string('imagePath')->nullable();
+>>>>>>> body
             $table->boolean('verified')->default(false);
             $table->enum('userRule', array('admin','teacher','assistant','parent','student'));
             $table->rememberToken();
@@ -81,4 +91,7 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
     }
 }
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> body

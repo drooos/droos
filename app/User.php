@@ -40,8 +40,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
-    public function getUserById(){
-        
+    public static function getUserById($userId){
+        $userById = User::where('id', $userId)->get();
+        return $userById;
     }
 }

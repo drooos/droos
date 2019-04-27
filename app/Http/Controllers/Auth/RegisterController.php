@@ -96,7 +96,7 @@ class RegisterController extends Controller
             case 'parent' : {
                 parents::create([
                     'parentId' => $usr->id ,
-                    'parentPhone' => $data['userNumber'],
+                    'linkCode' => Str::random(10),
                 ]);
             }
             break;
@@ -105,6 +105,7 @@ class RegisterController extends Controller
                 students::create([
                     'studentId' => $usr->id ,
                     'parentId'=> $usr->id ,
+                    'linkCode' => Str::random(10),
                 ]);
             }
             break;

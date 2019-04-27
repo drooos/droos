@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 namespace App\Http\Controllers;
@@ -28,6 +29,8 @@ class HomeController extends Controller
     }
 }
 =======
+=======
+>>>>>>> body
 <?php
 
 namespace App\Http\Controllers;
@@ -113,4 +116,7 @@ class HomeController extends Controller
 
 
 }
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> body
