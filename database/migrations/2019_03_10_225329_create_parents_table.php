@@ -15,7 +15,7 @@ class CreateParentsTable extends Migration
     {
         Schema::create('parents', function (Blueprint $table) {
             $table->unsignedBigInteger('parentId'); // Refers to users.userId
-            $table->string('parentPhone');
+            $table->string('linkCode');
             $table->timestamps();
             $table->foreign('parentId')->references('id')->on('users');
         });
