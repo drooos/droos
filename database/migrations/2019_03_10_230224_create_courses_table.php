@@ -17,11 +17,12 @@ class CreateCoursesTable extends Migration
             $table->bigIncrements('courseId');
             $table->unsignedBigInteger('categoryId'); //Refers to categories.categoryId
             $table->string('courseDescription');
-            $table->string('courseLevel');
+            $table->unsignedBigInteger('courseLevel');
             $table->unsignedBigInteger('teacherId'); //Refers to teachers.teacherId
             $table->timestamps();
             $table->foreign('categoryId')->references('categoryId')->on('categories');
             $table->foreign('teacherId')->references('teacherId')->on('teachers');
+            $table->foreign('courseLevel')->references('id')->on('levels');
         });
     }
 

@@ -8,16 +8,6 @@
             <div class="col-7">
                 @include('teacherModules.teacher_editProfile')
             </div>
-            
-            <div class="col-11">
-                <h1>الكورسات</h1>
-                @include('profiles.profileComponents.profileCourses')
-            </div>
-            
-            <div class="col-11">
-                <h1>الإعلانات</h1>
-                @include('profiles.profileComponents.profileAnnouncements')
-            </div>
         </div>
     </div>
 @endsection

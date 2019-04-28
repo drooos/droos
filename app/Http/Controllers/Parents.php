@@ -10,7 +10,6 @@ use App\Http\Controllers\Controller;
 
 class Parents extends Controller
 {
-    
     public function link_parent_to_son(Request $request){
         $validatedData = $request->validate(['sonCode' => 'required|min:10|max:10']);
         $result = students::getSonByCodeToLink($validatedData['sonCode']);

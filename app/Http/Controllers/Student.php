@@ -7,15 +7,15 @@ use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;*/
 
 
-namespace App;
+namespace App\Http\Controllers;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Http\Controllers\Controller;
 use Auth;
 
 class Student extends Controller
 {
-    //
-    public static function getSonByCodeToLink($sonCode){
-        $studentWithCode = Student::get();//->where('parentId',NULL);
+    public function get_my_parent(){
+        $userId = Auth::User()->id;
     }
+
 }
