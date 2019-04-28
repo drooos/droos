@@ -26,9 +26,11 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
-    "extra": {  
+    "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "laravel/dusk"
+            ]
         }
     },
     "autoload": {

@@ -1,13 +1,14 @@
 
 @extends('home')
 @section('homeContent')
-<div class="edit-profile ">
+
+<div class="edit-profile col-md-5">
     <h4>اضافة مادة دراسية</h4>
     <form action="/teacher/addCourse" method="POST">
-    @csrf
+        @csrf
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-md-12">
                     <div class="form-group">
                         <label for="level">الصف الدراسي</label>
                         <select class="form-control" id="level" name="level">
@@ -52,6 +53,4 @@
         </div>
     </form>
 </div>
-
-
 @endsection

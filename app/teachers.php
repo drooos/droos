@@ -12,14 +12,11 @@ class teachers extends Model
 
     public static function GetTeacherDetails(){
         $teacher = teachers::where('teacherId', Auth::user()->id )->get();
-        //dd($teacher[0]->teacherDetails);
         if(sizeof($teacher)>0){
             return  $teacher[0]->teacherDetails ;
         }else{
             return "";
         }
-        
-        
     }
 
 }

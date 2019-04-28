@@ -6,6 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class courses extends Model
 {
-    //
     protected $guarded = [];
+
+    public static function getAllCoursesByTeacherId( $teacherId ){
+        return courses::where('teacherId', $teacherId)->get();
+    }
+
+    public static function getCourseId( $courseId ){
+        return courses::where('courseId', $courseId)->get();
+    }
 }
