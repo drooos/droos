@@ -39,7 +39,7 @@
 
             <div class="col-lg-12">
                 <h1>
-                    مواعيد المادة
+                    المادة
                 </h1>
                 <table class="table table-striped table-dark">
                     <thead>

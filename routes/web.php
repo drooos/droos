@@ -25,9 +25,9 @@ Route::post('teacher/addCourse'     , 'Course@add_new_course');
 Route::get('teacher/teacherCourses' , 'Course@get_my_courses');
 
 //coures modules
-Route::get('course/show/{id}'       , 'course@get_course_full_details_by_Id');
-Route::get('/section/new/{id}'      , '');
-
+Route::get('course/show/{id}'           , 'course@get_course_full_details_by_Id' );
+Route::get('/section/new/{id}'          , 'section@create_new_section' );
+Route::post('/section/takeAttendance'   , 'section@take_attendance' );
 
 //admin routs
 Route::get('manage_users'           , 'admin@getPending');
