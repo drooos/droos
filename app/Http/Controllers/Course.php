@@ -113,7 +113,7 @@ class Course extends Controller
     public function go_to_add_group_form( $courseId ){
         
         return view('course_group.course_new_group',[
-            'courseId' =>   $courseId,
+            'courseId'  =>   $courseId,
             'days'      => $this->days_in_arabic(),
         ]);
     }
@@ -122,5 +122,35 @@ class Course extends Controller
         $allDataFromForm    = $request->all();
         //dd($allDataFromForm);
         return back();
+    }
+
+    private function generate_time_table_array_from_groups( $teacherId ){
+        $times              = courseGroups::getGroupsByTeacherId( $teacherId );
+        $allGroupsTimes     = [];
+        foreach( $times as $time ){
+            $courseData     = courses::getCourseId          ( $time['courseId']             );
+            $courseCategory = categories::getCategoryById   ( $courseData[0]['categoryId']  );
+            $level          = levels::getLevelById          ( $courseData[0]['courseLevel'] );
+            $allGroupsTimes[$time['groupDay']][] = [
+                "groupId"               => $time['time'],
+                "courseId"              => $time['courseId'],
+                "groupDay"              => $time['groupDay'],
+                "teacherId"             => $time['teacherId'],
+                "groupLimit"            => $time['groupLimit'],
+                "groupLocation"         => $time['groupLocation'],
+                "categoryName"          => $courseCategory[0]['categoryName'],
+                "courseLevel"           => $level[0]['levelName'],
+                "courseDescription"     => $courseData[0]['courseDescription'],
+                "groupTime"             => date("H:i", strtotime($time['groupTime'])),
+                "endTime"               => date("H:i", strtotime($time['groupTime'])+7200),
+            ];
+        }
+        return $allGroupsTimes;
+    }
+
+    public function get_my_time_table(){
+        $allTeacherTable            = $this->generate_time_table_array_from_groups( Auth::User()->id );
+        //dd($allTeacherTable);
+        return view('teacherModules.teacher_timeTable',[ 'times' => $allTeacherTable] );
     }
 }

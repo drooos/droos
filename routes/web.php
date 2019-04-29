@@ -20,6 +20,7 @@ Route::get  ('timeTable'                    ,function(){return view('timeTable.t
 
 //teacher modules
 Route::get  ('teacher/addCourse'            , 'Course@get_new_course_form'              );
+Route::get  ('teacher/TimeTabel'            , 'Course@get_my_time_table'                );
 Route::post ('teacher/addCourse'            , 'Course@add_new_course'                   );
 Route::get  ('teacher/teacherCourses'       , 'Course@get_my_courses'                   );
 Route::get  ('teacher/courses/addGroup/{id}', 'Course@go_to_add_group_form'             );

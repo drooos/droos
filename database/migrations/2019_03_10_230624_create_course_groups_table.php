@@ -16,7 +16,7 @@ class CreateCourseGroupsTable extends Migration
         Schema::create('course_groups', function (Blueprint $table) {
             $table->bigIncrements('groupId');
             $table->enum('groupDay', array('Sat','Sun','Mon','Tue','Wed','Thu','Fri'));
-            $table->time('groupTime');
+            $table->string('groupTime');
             $table->integer('groupLimit');
             $table->string('groupLocation');
             $table->unsignedBigInteger('courseId'); //Refers to courses.courseId
