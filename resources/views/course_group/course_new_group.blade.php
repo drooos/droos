@@ -36,11 +36,11 @@
                     </div>
                 </div>
                 <div class="form-group row col-lg-6">
-                        <label for="groupLimit" class="col-sm-5 col-form-label">عدد الجروبات</label>
-                        <div class="col-sm-10">
-                            <input type="number" class="form-control" id="groupLimit" placeholder="اقصي عدد للمجموعة" name="groupLimit">
-                        </div>
+                    <label for="groupLimit" class="col-sm-5 col-form-label">عدد الجروبات</label>
+                    <div class="col-sm-10">
+                        <input type="number" class="form-control" id="groupLimit" placeholder="اقصي عدد للمجموعة" name="groupLimit">
                     </div>
+                </div>
             </div>
             <button type="submit" class="btn">اضافة الجروب</button>
         </div>

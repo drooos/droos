@@ -120,6 +120,7 @@ class Course extends Controller
 
     public function add_new_group(Request $request){
         $allDataFromForm    = $request->all();
-        dd($allDataFromForm);
+        //dd($allDataFromForm);
+        return back();
     }
 }
