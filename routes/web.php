@@ -1,77 +1,43 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-Route::get('/', function () {return view('layout');});
-Route::get('/home', 'users@redirectUser');
-Route::get('/logout', 'users@logout');
-Route::get('login', function(){return view('auth.login');});
+// auth routs <login - signup>
 Auth::routes();
 
-Route::get('/', function () {
-    return view('layout');
-});
-Route::get('/home', 'Profile@getProfile');
+//default route logic "not finished"
+Route::get  ('/'                            , function () {return view('layout');}      );
 
+// routes for accounts
+Route::get  ('/home'                        , 'users@redirectUser'                      );
+Route::post ('Profile/Edit'                 ,'HomeController@updateTeacher'             );
+Route::get  ('/logout'                      , 'users@logout'                            );
 
-Route::post('addsubjects',function(){
-    
-Route::get('/home', function () {
-    $id = Auth::user()->id; 
-    return $id;
-    //return view('courses.teacherCourse');
-});
+//parent modules
+Route::view ('parent/linkSon'               , 'parentModules.link_son'                  );
+Route::post ('parent/linkSon'               , 'Parents@link_parent_to_son'              );
+Route::post ('parent/finishLink'            , 'Parents@finish_link'                     );
+Route::get  ('parent/mySons'                , 'parents@parent_sons'                     );
+// time table
+Route::get  ('timeTable'                    ,function(){return view('timeTable.timeTable');});
 
-Auth::routes();
-Route::get('home', function() {
-    return View('dashboard.profile');
-});
+//teacher modules
+Route::get  ('teacher/addCourse'            , 'Course@get_new_course_form'              );
+Route::get  ('teacher/TimeTabel'            , 'Course@get_my_time_table'                );
+Route::post ('teacher/addCourse'            , 'Course@add_new_course'                   );
+Route::get  ('teacher/teacherCourses'       , 'Course@get_my_courses'                   );
+Route::get  ('teacher/courses/addGroup/{id}', 'Course@go_to_add_group_form'             );
+Route::post ('teacher/courses/addGroup'     , 'Course@add_new_group'                    );
 
-Route::get('/profile/{id}', function ($id) {
-    return view('dashboard.profile')->with('id',$id);
-});
+//coures modules
+Route::get  ('course/show/{id}'             , 'course@get_course_full_details_by_Id'    );
+Route::get  ('/section/new/{id}'            , 'section@create_new_section'              );
+Route::post ('/section/takeAttendance'      , 'section@take_attendance'                 );
 
+//admin routs
+Route::get  ('manage_users'                 , 'admin@getPending'                        );
+Route::post ('manage_users'                 , 'admin@verifyAccount'                     );
 
-  $subject=new App\categories;
-  $subject->categoryName = Input::get('subject');
-  $subject->created_at = Input::get('fdate');
-  $subject->updated_at= Input::get('ldate');
-  $subject->save();
+//student modules
+Route::get  ('student/parent'               , 'student@get_my_parent'                   );
 
-  return view('auth.addsubjects');
-}
-);
-Route::get('login', function(){
-    return view('auth.login');
-});
-Auth::routes();
-Route::get('addsubjects', function(){
-    return view('auth.addsubjects');
-});
-Route::get('signup', function(){
-
-    return view('auth.register');
-});
-
-Route::view('test','layouts.app');
-//Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('signup', function(){return view('auth.register');});
-Route::view('test','courses.courseActions.addCourse');
-Route::get('get', 'Admin@getPending');
-Route::get('active', 'Admin@verifyAccount');
-Route::get('profile', 'Profile@getProfile');
-Route::get('manage_users', 'admin@getPending');
-Route::post('manage_users', 'admin@verifyAccount');
-Route::get('timeTable',function(){return view('timeTable.timeTable');});
-
-
-Route::get('testc', 'users@getInfoForActiveUser');
+// testing routs
+Route::get  ('testc'                        , 'users@getInfoForActiveUser'              );
+Route::view ('test'                         , 'courses.teacherShowCourse'               );
