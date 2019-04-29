@@ -43,7 +43,7 @@
                 @endforeach
                 </tbody>
             </table>
-                
+            <button class="btn btn-primary"><a href="/teacher/addCourse">كورس جديد</a></button>
         </div>
     </div>
 </div>

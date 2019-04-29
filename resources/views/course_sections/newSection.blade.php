@@ -36,6 +36,6 @@
                 <button type="submit" class="btn btn-primary">اخذالغياب</button>
             </div>
         </form>
-
+        <button class="btn btn-primary"><a href={{ URL::previous() }}>الرجوع للجروبات</a></button>
     </div>
 @endsection

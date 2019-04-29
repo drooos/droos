@@ -379,3 +379,10 @@ jQuery(document).ready(function($){
 		});
 	}
 });
+
+$(function () {
+	$('.datepicker').datepicker();
+});
+
+//console.log($('#input_starttime'));
+$('#input_starttime').pickatime({});

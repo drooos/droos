@@ -4,9 +4,9 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="container">
-                    <h1>
+                    <h2>
                         معلومات المدرس والمادة
-                    </h1>
+                    </h2>
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
@@ -14,9 +14,15 @@
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title ">{{ $courseAll['tFname'] . " " . $courseAll['tLname'] }}</h5>
-                                    <p class="card-text">{{ $courseAll['tDesc'] }}</p>
-                                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                                    <h5 class="card-title ">    
+                                        {{ $courseAll['tFname'] . " " . $courseAll['tLname'] }}
+                                    </h5>
+                                    <p class="card-text">
+                                        {{ $courseAll['tDesc'] }}
+                                    </p>
+                                    <p class="card-text">
+                                        <small class="text-muted">Last updated 3 mins ago</small>
+                                    </p>
                                 </div>
                                 <div class="row no-gutters">
                                     <div class="card-body">
@@ -38,9 +44,9 @@
             </div>
 
             <div class="col-lg-12">
-                <h1>
+                <h2>
                     المادة
-                </h1>
+                </h2>
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
@@ -87,8 +93,11 @@
                 </table>
             </div>
         </div>
+        <button class="btn btn-primary"><a href="/teacher/courses/addGroup/{{ $courseId }}">انشاء جروب</a></button>
+        <hr>
         <div class="row">
-
+            <h2>المنهج الدراسي</h2>
+            <button class="btn btn-primary"><a href="">رفع فايل جديد ++</a></button>
         </div>
     </div>
 @endsection
