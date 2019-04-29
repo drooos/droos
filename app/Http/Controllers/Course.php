@@ -12,6 +12,7 @@ use App\courseGroups;
 use App\groupRequests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Input;
 class Course extends Controller
 {
     public function get_new_course_form(){
@@ -120,8 +121,20 @@ class Course extends Controller
 
     public function add_new_group(Request $request){
         $allDataFromForm    = $request->all();
-        //dd($allDataFromForm);
-        return back();
+        $request->validate([
+            'day'           => 'required',
+            'location'      =>'required',
+            'groupLimit'    =>'required'
+        ]);
+        courseGroups::create([
+            'teacherId'     => Auth::User()->id,
+            'groupDay'      => $allDataFromForm['day'],
+            'groupLocation' => $allDataFromForm['location'],
+            'courseId'      => $allDataFromForm['group_id'],
+            'groupTime'     => date("H:i",strtotime($allDataFromForm['groupTime'])),
+            'groupLimit'    => $allDataFromForm['groupLimit']
+        ]);
+        return redirect('/teacher/teacherCourses');
     }
 
     private function generate_time_table_array_from_groups( $teacherId ){
@@ -153,4 +166,5 @@ class Course extends Controller
         //dd($allTeacherTable);
         return view('teacherModules.teacher_timeTable',[ 'times' => $allTeacherTable] );
     }
+
 }

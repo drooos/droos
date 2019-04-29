@@ -104,7 +104,7 @@
                         <ul>
                             @if(isset($times['Tue']))
                                 @foreach ($times['Tue'] as $time)
-                                    <li class="single-event" data-start={{ $time['groupTime'] }} data-end="12:00" data-content="event-abs-circuit" data-event="event-{{ rand(1,4) }}">
+                                <li class="single-event" data-start={{ $time['groupTime'] }} data-end={{ $time['endTime'] }} data-content="event-abs-circuit" data-event="event-{{ rand(1,4) }}">
                                         <a href="#0">
                                             <em class="event-name">
                                                 {{ $time['categoryName'] }} <br>
@@ -121,7 +121,7 @@
                         <ul>
                             @if(isset($times['Mon']))
                                 @foreach ($times['Mon'] as $time)
-                                    <li class="single-event" data-start={{ $time['groupTime'] }} data-end="12:00" data-content="event-abs-circuit" data-event="event-{{ rand(1,4) }}">
+                                <li class="single-event" data-start={{ $time['groupTime'] }} data-end={{ $time['endTime'] }} data-content="event-abs-circuit" data-event="event-{{ rand(1,4) }}">
                                         <a href="#0">
                                             <em class="event-name">
                                                 {{ $time['categoryName'] }} <br>
@@ -138,7 +138,7 @@
                         <ul>
                             @if(isset($times['Sun']))
                                 @foreach ($times['Sun'] as $time)
-                                    <li class="single-event" data-start={{ $time['groupTime'] }} data-end="12:30" data-content="event-abs-circuit" data-event="event-{{ rand(1,4) }}">
+                                <li class="single-event" data-start={{ $time['groupTime'] }} data-end={{ $time['endTime'] }} data-content="event-abs-circuit" data-event="event-{{ rand(1,4) }}">
                                         <a href="#0">
                                             <em class="event-name">
                                                 {{ $time['categoryName'] }} <br>
@@ -155,7 +155,7 @@
                         <ul>
                             @if(isset($times['Sat']))
                                 @foreach ($times['Sat'] as $time)
-                                    <li class="single-event" data-start={{ $time['groupTime'] }} data-end="12:00" data-content="event-abs-circuit" data-event="event-{{ rand(1,4) }}">
+                                <li class="single-event" data-start={{ $time['groupTime'] }} data-end={{ $time['endTime'] }} data-content="event-abs-circuit" data-event="event-{{ rand(1,4) }}">
                                         <a href="#0">
                                             <em class="event-name">
                                                 {{ $time['categoryName'] }} <br>
