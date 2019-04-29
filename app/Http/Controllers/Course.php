@@ -120,8 +120,8 @@ class Course extends Controller
 
     public function add_new_group(Request $request){
         $allDataFromForm    = $request->all();
-        //dd($allDataFromForm);
-        return back();
+        dd($allDataFromForm);
+        //return back();
     }
 
     private function generate_time_table_array_from_groups( $teacherId ){
@@ -152,5 +152,9 @@ class Course extends Controller
         $allTeacherTable            = $this->generate_time_table_array_from_groups( Auth::User()->id );
         //dd($allTeacherTable);
         return view('teacherModules.teacher_timeTable',[ 'times' => $allTeacherTable] );
+    }
+
+    public function get_pending_requests_for_teacher(){
+        
     }
 }

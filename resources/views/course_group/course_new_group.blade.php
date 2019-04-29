@@ -10,7 +10,7 @@
                 <div class="form-group col-md-4">
                     <div class="sm-form ">
                         <label for="inputMDEx1" class="text-right">معاد الحصة</label>
-                        <input type="time" id="inputMDEx1" class="form-control">
+                        <input type="time" id="inputMDEx1" class="form-control" name="groupTime">
                     </div>
                 </div>
                 <div class="form-group col-md-8">
