@@ -3,9 +3,7 @@
 @section('homeContent')
     <div class="container home"> 
         <div class="row">
-                 
             <div class="col-lg-12">
-               
                 <table class="table table-striped table-dark">
                     <thead>
                         <tr>
@@ -32,7 +30,6 @@
                 </table>
             </div>
         </div>
-        
     </div>
 @endsection
 

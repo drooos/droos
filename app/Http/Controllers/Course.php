@@ -14,6 +14,8 @@ use App\groupRequests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use \Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 class Course extends Controller
 {
     public function get_new_course_form(){
@@ -280,12 +282,54 @@ class Course extends Controller
         return view('courses.student_course_show')->with('courses', $courses);
     }
 
-    public function getallcourses(){
-        
-        $courses  = courses::getCourses( );
-
-        return view('studentModules.allcourses')->with('courses', $courses);
+    public function getallcourses(Request $request){
+        $courses    = courses::getAllCourses();
+        $allCourses = [];
+        foreach( $courses as $course ){
+            $courseCategory = categories  ::getCategoryById  ( $course['categoryId']  );
+            $level          = levels      ::getLevelById     ( $course['courseLevel'] );
+            $teacherDetails = User        ::getUserById      ( $course['teacherId']   );
+            $allGroups      = courseGroups::getGroupsByCourseId( $course['courseId'] );
+            $allCourses[] = [
+                "courseId"              => $course['courseId'],
+                "level"                 => $level[0]['levelName'],
+                "course_desc"           => $course['courseDescription'],
+                "teacher_first_name"    => $teacherDetails[0]['userFname'],
+                "teacher_last_name"     => $teacherDetails[0]['userLname'],
+                "teacher_photo"         => $teacherDetails[0]['imagePath'],
+                "subject"               => $courseCategory[0]['categoryName'],
+                "groups_numbers"        => sizeof($allGroups)
+            ];
+        }
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $itemCollection = collect($allCourses);
+        $perPage = 3;
+        $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
+        $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
+        $paginatedItems->setPath($request->url());
+        return view('studentModules.allcourses', ['allCourses' => $paginatedItems]);
     }
 
-      
+    public function get_course_details_with_groups( $courseId ){
+        $courseGroups   = courseGroups  ::getGroupsByCourseId ( $courseId              );
+        $courseData     = courses       ::getCourseId         ( $courseId              );
+        $courseCategory = categories    ::getCategoryById     ( $courseData[0]['categoryId']  );
+        $level          = levels        ::getLevelById        ( $courseData[0]['courseLevel'] );
+        $teacherDetails = User          ::getUserById         ( $courseData[0]['teacherId']   );
+        $groupLimit     = [];
+
+        if( sizeof($courseGroups) ){
+            foreach( $courseGroups as $group ){
+                $groupLimit[] = sizeof(groupRequests::getGroupStudentByGroupId($group['groupId']));
+            }
+        }
+        return view('courses.course_details_groups',[
+            'groups'        => $courseGroups,
+            'courseData'    => $courseData[0],
+            'level'         => $level[0]['levelName'],
+            'subject'       => $courseCategory[0]['categoryName'],
+            'teacherData'   => $teacherDetails[0],
+            'groupLimit'    => $groupLimit
+        ]);
+    }
 }

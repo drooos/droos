@@ -11,7 +11,7 @@ class groupRequests extends Model
     }
 
     public static function getGroupStudentByGroupId( $groupId ){
-        return groupRequests::where('groupId', $groupId)->where('isAcc',true)->get();
+        return groupRequests::where('groupId', $groupId)->where('isAcc',1)->get();
     }
 
     public static function getGroupsByStudentId( $studentId ){
