@@ -13,4 +13,12 @@ class courseGroups extends Model
     public static function getGroupsByTeacherId( $teacherId ){
         return courseGroups::where('teacherId', $teacherId)->get();
     }
+
+    public static function groupExist ($groupId){
+        if(courseGroups::where('groupId', $groupId)->exists()){
+            return true;
+        }
+        return false;
+    }
+
 }

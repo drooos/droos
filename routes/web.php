@@ -7,7 +7,7 @@ Route::get  ('/'                            , function () {return view('layout')
 
 // routes for accounts
 Route::get  ('/home'                        , 'users@redirectUser'                      );
-Route::post  ('/home/ChangePic'             , 'HomeController@ChangePic'                      );
+Route::post ('/home/ChangePic'              , 'HomeController@ChangePic'                );
 Route::post ('Profile/Edit'                 ,'HomeController@updateTeacher'             );
 Route::get  ('/logout'                      , 'users@logout'                            );
 
@@ -39,6 +39,7 @@ Route::post ('manage_users'                 , 'admin@verifyAccount'             
 
 //student modules
 Route::get  ('student/parent'               , 'student@get_my_parent'                   );
+Route::get  ('student/join/course/{id}'     , 'student@joinGroup'); ///////////////////////
 
 // testing routs
 Route::get  ('testc'                        , 'users@getInfoForActiveUser'              );
