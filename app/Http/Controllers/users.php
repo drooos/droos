@@ -39,10 +39,10 @@ class users extends Controller
                 $navContent[] = ["icon"=>"fas fa-history","title"=>"الطلبات المعلقة","link"=>"/course/groups/pending"];
                 $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"/notification"];
                 $navContent[] = ["icon"=>"far fa-chart-pie","title"=>" جدول الحصص","link"=>"/teacher/TimeTabel"];
-                
             break;
-            case "Admin":
+            case "admin":
                 $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"/dashboard"];
+                $navContent[] = ["icon"=>"fas fa-history","title"=>"الحسابات المعلقة","link"=>"/manage_users"];
                 $navContent[] = ["icon"=>"far fa-user","title"=>" الصفحة الشخصية","link"=>"/Profile"];
                 $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"/notification"];
                 $navContent[] = ["icon"=>"fal fa-plus-circle","title"=>"اضافة ادمن جديد","link"=>"/addnewadmin"];

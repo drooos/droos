@@ -10,10 +10,9 @@ use App\Http\Controllers\Controller;
 class Admin extends Controller
 {
     public function getPending(){
-		
-		$users = pendingAccounts::where('approved', 0)->get();
-		return view('adminModules.manage_users', [
-			'users' => $users
+		$pending_users = User::get_pending_users();
+		return view('adminModules.admin_manage_users', [
+			'users' => $pending_users
 		]);
     }
 

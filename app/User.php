@@ -22,4 +22,8 @@ class User extends Authenticatable
         $userById = User::where('id', $userId)->get();
         return $userById;
     }
+
+    public static function get_pending_users(){
+        return User::where('verified',0)->where('userRule','!=','Admin')->get();
+    }
 }

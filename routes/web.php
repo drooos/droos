@@ -7,6 +7,7 @@ Route::get  ('/'                            , function () {return view('layout')
 
 // routes for accounts
 Route::get  ('/home'                        , 'users@redirectUser'                          );
+Route::post  ('/home/ChangePic'             , 'HomeController@ChangePic'                      );
 Route::post ('Profile/Edit'                 , 'HomeController@updateTeacher'                );
 Route::get  ('Profile'                      , 'users@redirectUser'                          );
 Route::get  ('/logout'                      , 'users@logout'                                );

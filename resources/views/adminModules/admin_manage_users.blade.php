@@ -2,9 +2,15 @@
 @section('homeContent')
 <div class="container home">
     <div class="row">
-    	@foreach ($users as $user)
-        <div class="col-12">
-            <h1><button onclick="approveAccount({{$user->userId}})">Approve</button> {{$user->User->email}}</h1>
+        @foreach ($users as $user)
+        <div class="col-lg-6">
+            <div class="card col-lg-10">
+                <div class="card-body">
+                    <h1>
+                        <button onclick="approveAccount({{$user->userId}})" type="button" class="btn btn-lg btn-indigo">تفعيل</button>
+                        {{$user->email}}</h1>
+                </div>
+            </div>
         </div>
         @endforeach
     </div>
