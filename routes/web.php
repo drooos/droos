@@ -10,6 +10,7 @@ Route::get  ('/home'                        , 'users@redirectUser'              
 Route::post ('Profile/Edit'                 ,'HomeController@updateTeacher'             );
 Route::get  ('/logout'                      , 'users@logout'                            );
 
+
 //parent modules
 Route::view ('parent/linkSon'               , 'parentModules.link_son'                  );
 Route::post ('parent/linkSon'               , 'Parents@link_parent_to_son'              );
@@ -37,6 +38,8 @@ Route::post ('manage_users'                 , 'admin@verifyAccount'             
 //student modules
 Route::get  ('student/parent'               , 'student@get_my_parent'                   );
 Route::get ( '/student_course_show'         ,  'course@getstudentscourses'              );
+Route::get ( '/allcourses'                   ,  'course@getallcourses'                   );
+
 
 
 // testing routs
