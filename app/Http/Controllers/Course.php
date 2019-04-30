@@ -114,7 +114,7 @@ class Course extends Controller
     public function go_to_add_group_form( $courseId ){
         
         return view('course_group.course_new_group',[
-            'courseId'  =>   $courseId,
+            'courseId'  => $courseId,
             'days'      => $this->days_in_arabic(),
         ]);
     }
@@ -141,8 +141,8 @@ class Course extends Controller
         $times              = courseGroups::getGroupsByTeacherId( $teacherId );
         $allGroupsTimes     = [];
         foreach( $times as $time ){
-            $courseData     = courses   ::getCourseId          ( $time['courseId']             );
-            $courseCategory = categories::getCategoryById   ( $courseData[0]['categoryId']  );
+            $courseData     = courses   ::getCourseId           ( $time['courseId']             );
+            $courseCategory = categories::getCategoryById       ( $courseData[0]['categoryId']  );
             $level          = levels    ::getLevelById          ( $courseData[0]['courseLevel'] );
             $allGroupsTimes[$time['groupDay']][] = [
                 "groupId"               => $time['time'],
@@ -158,6 +158,36 @@ class Course extends Controller
                 "endTime"               => date("H:i", strtotime($time['groupTime'])+7200),
             ];
         }
+        return $allGroupsTimes;
+    }
+
+    private function generate_time_table_array_by_student_id( $studentId ){
+        $getAllgroupsForCurrentStudent = groupRequests::getGroupsByStudentId( $studentId );
+        $allGroupsTimes = [];
+        foreach( $getAllgroupsForCurrentStudent as $group){
+            $groupDetails   = courseGroups::getGroupByGroupId( $group['groupId']             );
+            $courseData     = courses     ::getCourseId      ( $groupDetails[0]['courseId']  );
+            $courseCategory = categories  ::getCategoryById  ( $courseData[0]['categoryId']  );
+            $level          = levels      ::getLevelById     ( $courseData[0]['courseLevel'] );
+            $teacherDetails = User        ::getUserById      ( $courseData[0]['teacherId']   );
+            $allGroupsTimes[$groupDetails[0]['groupDay']][] = [
+                "groupId"               => $groupDetails[0]['groupId'],
+                "courseId"              => $groupDetails[0]['courseId'],
+                "groupDay"              => $groupDetails[0]['groupDay'],
+                "teacherId"             => $groupDetails[0]['teacherId'],
+                "groupLimit"            => $groupDetails[0]['groupLimit'],
+                "groupLocation"         => $groupDetails[0]['groupLocation'],
+                "categoryName"          => $courseCategory[0]['categoryName'],
+                "courseLevel"           => $level[0]['levelName'],
+                "teacher_first_name"    => $teacherDetails[0]['userFname'],
+                "teacher_last_name"     => $teacherDetails[0]['userLname'],
+                "courseDescription"     => $courseData[0]['courseDescription'],
+                "groupTime"             => date("H:i", strtotime($groupDetails[0]['groupTime'])),
+                "endTime"               => date("H:i", strtotime($groupDetails[0]['groupTime'])+7200),
+            ];
+        }
+
+        //dd($allGroupsTimes);
         return $allGroupsTimes;
     }
 
@@ -200,4 +230,12 @@ class Course extends Controller
         return view('course_group.course_pending_group',['pendingStudents'=>$allRequests]);
     }
 
+    public function get_student_time_table(){
+        $studentId = Auth::User()->id;
+        $times = [];
+        $times = $this->generate_time_table_array_by_student_id($studentId);
+        return view( 'studentModules.student_time_table',
+            ['times'=>$times]
+        );
+    }
 }

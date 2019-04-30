@@ -11,6 +11,10 @@ class courseGroups extends Model
         return courseGroups::where('courseId', $courseId)->get();
     }
 
+    public static function getGroupByGroupId( $groupId ){
+        return courseGroups::where( 'groupId', $groupId )->get();
+    }
+
     public static function getGroupsByTeacherId( $teacherId ){
         return courseGroups::where('teacherId', $teacherId)->get();
     }

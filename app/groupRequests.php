@@ -14,6 +14,10 @@ class groupRequests extends Model
         return groupRequests::where('groupId', $groupId)->where('isAcc',true)->get();
     }
 
+    public static function getGroupsByStudentId( $studentId ){
+        return groupRequests::where('studentId', $studentId)->where('isAcc', 1)->get();
+    }
+
     public static function activateStudentByIdAndGroupId( $studentId, $groupId ){
         groupRequests::where('studentId', $studentId)->where('groupId',$groupId)->update(['isAcc'=>1]);
     }

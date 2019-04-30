@@ -39,6 +39,7 @@ Route::post ('manage_users'                 , 'admin@verifyAccount'             
 
 //student modules
 Route::get  ('student/parent'               , 'student@get_my_parent'                   );
+Route::get  ('student/timeTable'            , 'Course@get_student_time_table'           );
 
 // testing routs
 Route::get  ('testc'                        , 'users@getInfoForActiveUser'              );

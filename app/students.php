@@ -38,6 +38,6 @@ class students extends Model
     }
 
     public static function getParentByStudentId( $studentId ){
-
+        return students::where('studentId',$studentId)->get();
     }
 }
