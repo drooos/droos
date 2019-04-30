@@ -25,4 +25,10 @@ class group extends Controller
         }
         return back();
     }
+
+    public function student_leave_group_by_group_id( $groupId ){
+        $studentId  = Auth::User()->id;
+        groupRequests::leaveGroupByStudentIdAndGroupId( $studentId, $groupId );
+        return back();
+    }
 }

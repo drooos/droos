@@ -181,9 +181,11 @@ class Course extends Controller
                 "courseLevel"           => $level[0]['levelName'],
                 "teacher_first_name"    => $teacherDetails[0]['userFname'],
                 "teacher_last_name"     => $teacherDetails[0]['userLname'],
+                "teacher_photo"         => $teacherDetails[0]['imagePath'],
                 "courseDescription"     => $courseData[0]['courseDescription'],
                 "groupTime"             => date("H:i", strtotime($groupDetails[0]['groupTime'])),
                 "endTime"               => date("H:i", strtotime($groupDetails[0]['groupTime'])+7200),
+                "groupDay"              => $groupDetails[0]['groupDay']
             ];
         }
 
@@ -237,5 +239,11 @@ class Course extends Controller
         return view( 'studentModules.student_time_table',
             ['times'=>$times]
         );
+    }
+
+    public function get_student_courses(){
+        $studentId  = Auth::User()->id;
+        $times      = $this->generate_time_table_array_by_student_id( $studentId );
+        return view('courses.studentCourses', ['studentCourses' => $times]);
     }
 }

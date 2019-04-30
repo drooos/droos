@@ -36,11 +36,11 @@ Route::get  ('/group/{action}/{id}/{group}' , 'group@action_on_pending_account' 
 //admin routs
 Route::get  ('manage_users'                 , 'admin@getPending'                        );
 Route::post ('manage_users'                 , 'admin@verifyAccount'                     );
-
 //student modules
 Route::get  ('student/parent'               , 'student@get_my_parent'                   );
 Route::get  ('student/timeTable'            , 'Course@get_student_time_table'           );
-
+Route::get  ('student/courses'              , 'Course@get_student_courses'              );
+Route::get  ('student/course/{id}/leave'    , 'group@student_leave_group_by_group_id'   );
 // testing routs
 Route::get  ('testc'                        , 'users@getInfoForActiveUser'              );
 Route::view ('test'                         , 'courses.teacherShowCourse'               );

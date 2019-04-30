@@ -25,5 +25,8 @@ class groupRequests extends Model
     public static function deleteRequestByStudentAndGroupId( $studentId, $groupId ){
         groupRequests::where('studentId', $studentId)->where('groupId',$groupId)->update(['isAcc'=>2]);
     }
-    
+
+    public static function leaveGroupByStudentIdAndGroupId( $studentId, $groupId ){
+        groupRequests::where('studentId', $studentId)->where('groupId',$groupId)->update(['isAcc'=>3]);
+    }
 }
