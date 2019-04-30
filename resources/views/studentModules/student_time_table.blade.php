@@ -42,7 +42,6 @@
                     <li><span>23:00</span></li>
                     <li><span>23:30</span></li>
                     <li><span>24:00</span></li>
-
                 </ul>
             </div> <!-- .timeline -->
 
@@ -57,7 +56,8 @@
                                         <a href="#0">
                                             <em class="event-name">
                                                 {{ $time['categoryName'] }} <br>
-                                                {{ $time['courseLevel'] }}
+                                                {{ $time['courseLevel'] }}  <br><br>
+                                                <button class="btn purple-gradient">{{ $time['teacher_first_name'] . ' ' . $time['teacher_last_name'] }}</button>
                                             </em>
                                         </a>
                                     </li>
@@ -74,7 +74,8 @@
                                         <a href="#0">
                                             <em class="event-name">
                                                 {{ $time['categoryName'] }} <br>
-                                                {{ $time['courseLevel'] }}
+                                                {{ $time['courseLevel'] }}<br><br>
+                                                <button class="btn purple-gradient">{{ $time['teacher_first_name'] . ' ' . $time['teacher_last_name'] }}</button>
                                             </em>
                                         </a>
                                     </li>
@@ -91,7 +92,8 @@
                                         <a href="#0">
                                             <em class="event-name">
                                                 {{ $time['categoryName'] }} <br>
-                                                {{ $time['courseLevel'] }}
+                                                {{ $time['courseLevel'] }}<br><br>
+                                                <button class="btn purple-gradient">{{ $time['teacher_first_name'] . ' ' . $time['teacher_last_name'] }}</button>
                                             </em>
                                         </a>
                                     </li>
@@ -108,7 +110,8 @@
                                         <a href="#0">
                                             <em class="event-name">
                                                 {{ $time['categoryName'] }} <br>
-                                                {{ $time['courseLevel'] }}
+                                                {{ $time['courseLevel'] }}<br><br>
+                                                <button class="btn purple-gradient">{{ $time['teacher_first_name'] . ' ' . $time['teacher_last_name'] }}</button>
                                             </em>
                                         </a>
                                     </li>
@@ -125,7 +128,8 @@
                                         <a href="#0">
                                             <em class="event-name">
                                                 {{ $time['categoryName'] }} <br>
-                                                {{ $time['courseLevel'] }}
+                                                {{ $time['courseLevel'] }}<br><br>
+                                                <button class="btn purple-gradient">{{ $time['teacher_first_name'] . ' ' . $time['teacher_last_name'] }}</button>
                                             </em>
                                         </a>
                                     </li>
@@ -142,7 +146,8 @@
                                         <a href="#0">
                                             <em class="event-name">
                                                 {{ $time['categoryName'] }} <br>
-                                                {{ $time['courseLevel'] }}
+                                                {{ $time['courseLevel'] }}<br><br>
+                                                <button class="btn purple-gradient">{{ $time['teacher_first_name'] . ' ' . $time['teacher_last_name'] }}</button>
                                             </em>
                                         </a>
                                     </li>
@@ -159,7 +164,8 @@
                                         <a href="#0">
                                             <em class="event-name">
                                                 {{ $time['categoryName'] }} <br>
-                                                {{ $time['courseLevel'] }}
+                                                {{ $time['courseLevel'] }}<br><br>
+                                                <button class="btn purple-gradient">{{ $time['teacher_first_name'] . ' ' . $time['teacher_last_name'] }}</button>
                                             </em>
                                         </a>
                                     </li>
@@ -181,6 +187,7 @@
             <div class="body">
                 <div class="event-info"></div>
                 <div class="body-bg"></div>
+                asdasads
             </div>
             <a href="#0" class="close">Close</a>
             </div>

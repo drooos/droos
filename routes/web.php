@@ -8,7 +8,7 @@ Route::get  ('/'                            , function () {return view('layout')
 // routes for accounts
 Route::get  ('/home'                        , 'users@redirectUser'                          );
 Route::post ('Profile/Edit'                 , 'HomeController@updateTeacher'                );
-Route::post ('/Profile'                      , 'users@redirectUser'                          );
+Route::get  ('Profile'                      , 'users@redirectUser'                          );
 Route::get  ('/logout'                      , 'users@logout'                                );
 
 //parent modules
@@ -33,13 +33,14 @@ Route::get  ('course/groups/pending'        , 'course@get_pending_requests_for_t
 
 Route::get  ('/section/new/{id}'            , 'section@create_new_section'              );
 Route::post ('/section/takeAttendance'      , 'section@take_attendance'                 );
-
+Route::get  ('/group/{action}/{id}/{group}' , 'group@action_on_pending_account'         );
 //admin routs
 Route::get  ('manage_users'                 , 'admin@getPending'                        );
 Route::post ('manage_users'                 , 'admin@verifyAccount'                     );
 
 //student modules
 Route::get  ('student/parent'               , 'student@get_my_parent'                   );
+Route::get  ('student/timeTable'            , 'Course@get_student_time_table'           );
 
 // testing routs
 Route::get  ('testc'                        , 'users@getInfoForActiveUser'              );
