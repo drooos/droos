@@ -54,6 +54,8 @@ class users extends Controller
                 $navContent[] = ["icon"=>"far fa-bolt","title"=>"ولي الامر","link"=>"/student/parent"];
                 $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"/notification"];
                 $navContent[] = ["icon"=>"fal fa-plus-circle","title"=>"جدولي","link"=>"/addnewadmin"];
+                $navContent[] = ["icon"=>"fal fa-plus-circle","title"=>"عرض الكورسات","link"=>"/student_course_show"];
+
             break;
             case "parent":
                 $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"dashboard"];

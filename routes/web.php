@@ -36,6 +36,8 @@ Route::post ('manage_users'                 , 'admin@verifyAccount'             
 
 //student modules
 Route::get  ('student/parent'               , 'student@get_my_parent'                   );
+Route::get ( '/student_course_show'         ,  'course@getstudentscourses'              );
+
 
 // testing routs
 Route::get  ('testc'                        , 'users@getInfoForActiveUser'              );
