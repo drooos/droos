@@ -273,4 +273,19 @@ class Course extends Controller
 
 
 
+    public function getstudentscourses(){
+        $studentId      = Auth::User()->id;
+        $courses        = courses::getStudentsCourses( $studentId );
+
+        return view('courses.student_course_show')->with('courses', $courses);
+    }
+
+    public function getallcourses(){
+        
+        $courses  = courses::getCourses( );
+
+        return view('studentModules.allcourses')->with('courses', $courses);
+    }
+
+      
 }

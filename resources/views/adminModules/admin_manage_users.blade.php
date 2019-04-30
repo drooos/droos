@@ -6,9 +6,8 @@
         <div class="col-lg-6">
             <div class="card col-lg-10">
                 <div class="card-body">
-                    <h1>
-                        <button onclick="approveAccount({{$user->userId}})" type="button" class="btn btn-lg btn-indigo">تفعيل</button>
-                        {{$user->email}}</h1>
+                    <h1>{{$user->email}}</h1>
+                    <button onclick="approveAccount({{$user->id}})" type="button" class="btn btn-lg btn-indigo">تفعيل</button>
                 </div>
             </div>
         </div>

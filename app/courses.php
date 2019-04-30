@@ -15,4 +15,11 @@ class courses extends Model
     public static function getCourseId( $courseId ){
         return courses::where('courseId', $courseId)->get();
     }
+
+    public static function getStudentsCourses( $studentId ){
+        return students::where('studentId', $studentId)->get();
+    }
+    public static function getCourses( ){
+        return courses::all();
+    }
 }

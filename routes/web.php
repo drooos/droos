@@ -12,6 +12,7 @@ Route::post ('Profile/Edit'                 , 'HomeController@updateTeacher'    
 Route::get  ('Profile'                      , 'users@redirectUser'                          );
 Route::get  ('/logout'                      , 'users@logout'                                );
 
+
 //parent modules
 Route::view ('parent/linkSon'               , 'parentModules.link_son'                  );
 Route::post ('parent/linkSon'               , 'Parents@link_parent_to_son'              );
@@ -43,6 +44,11 @@ Route::get  ('student/parent'               , 'student@get_my_parent'           
 Route::get  ('student/timeTable'            , 'Course@get_student_time_table'           );
 Route::get  ('student/courses'              , 'Course@get_student_courses'              );
 Route::get  ('student/course/{id}/leave'    , 'group@student_leave_group_by_group_id'   );
+Route::get ( '/student_course_show'         ,  'course@getstudentscourses'              );
+Route::get ( '/allcourses'                   ,  'course@getallcourses'                   );
+
+
+
 // testing routs
 Route::get  ('testc'                        , 'users@getInfoForActiveUser'              );
 Route::view ('test'                         , 'courses.teacherShowCourse'               );

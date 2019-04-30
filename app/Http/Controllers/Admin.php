@@ -17,23 +17,21 @@ class Admin extends Controller
     }
 
     public function verifyAccount(){
-    	//--check if admin--
 		$id = request()->name;
-		$user = pendingAccounts::where('userId', $id)
-			->update(['approved' => 1]);
-		return $this->getPending();
+		User::activate_account( $id );
+		return back();
+	}
+
+	public function redirectUser(){
+		echo Auth::user()->userRule;
+		switch( Auth::user()->userRule ){
+				case "teacher":
+				//    return view('profiles.profile');
+				break;
+				
+				default: 
+				//return view('profiles.profile');
+				break;
 		}
-		
-		public function redirectUser(){
-			echo Auth::user()->userRule;
-			switch( Auth::user()->userRule ){
-					case "teacher":
-					//    return view('profiles.profile');
-					break;
-					
-					default: 
-					//return view('profiles.profile');
-					break;
-			}
 	}
 }

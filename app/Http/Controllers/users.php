@@ -38,7 +38,9 @@ class users extends Controller
                 $navContent[] = ["icon"=>"fas fa-rocket","title"=>"الكورسات","link"=>"/teacher/teacherCourses"];
                 $navContent[] = ["icon"=>"fas fa-history","title"=>"الطلبات المعلقة","link"=>"/course/groups/pending"];
                 $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"/notification"];
-                $navContent[] = ["icon"=>"far fa-chart-pie","title"=>" جدول الحصص","link"=>"/teacher/TimeTabel"];
+                $navContent[] = ["icon"=>"far fa-chart-pie","title"=>" جدول الحصص","link"=>"/timeTable"];
+
+                
             break;
             case "admin":
                 $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"/dashboard"];
@@ -50,11 +52,13 @@ class users extends Controller
 
             case "student":
                 $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"/dashboard"];
-                $navContent[] = ["icon"=>"far fa-user","title"=>" الصفحة الشخصية","link"=>"/Profile"];
-                $navContent[] = ["icon"=>"far fa-user","title"=>"المواد الدراسية","link"=>"/student/courses"];
+                $navContent[] = ["icon"=>"far fa-bell","title"=>" جميع المواد","link"=>"/allcourses"];
+                $navContent[] = ["icon"=>"far fa-user","title"=>" الصفحة الشخصية","link"=>"/profile"];
                 $navContent[] = ["icon"=>"far fa-bolt","title"=>"ولي الامر","link"=>"/student/parent"];
                 $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"/notification"];
-                $navContent[] = ["icon"=>"fal fa-plus-circle","title"=>"جدولي","link"=>"/student/timeTable"];
+                $navContent[] = ["icon"=>"fal fa-plus-circle","title"=>"جدولي","link"=>"/addnewadmin"];
+                $navContent[] = ["icon"=>"fal fa-plus-circle","title"=>"عرض الكورسات","link"=>"/student_course_show"];
+
             break;
             case "parent":
                 $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"dashboard"];
