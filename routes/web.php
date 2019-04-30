@@ -7,6 +7,7 @@ Route::get  ('/'                            , function () {return view('layout')
 
 // routes for accounts
 Route::get  ('/home'                        , 'users@redirectUser'                      );
+Route::post  ('/home/ChangePic'             , 'HomeController@ChangePic'                      );
 Route::post ('Profile/Edit'                 ,'HomeController@updateTeacher'             );
 Route::get  ('/logout'                      , 'users@logout'                            );
 
@@ -28,6 +29,7 @@ Route::post ('teacher/courses/addGroup'     , 'Course@add_new_group'            
 
 //coures modules
 Route::get  ('course/show/{id}'             , 'course@get_course_full_details_by_Id'    );
+Route::post ('course/show/addmaterial'      , 'course@addMaterial');    ///////////////
 Route::get  ('/section/new/{id}'            , 'section@create_new_section'              );
 Route::post ('/section/takeAttendance'      , 'section@take_attendance'                 );
 

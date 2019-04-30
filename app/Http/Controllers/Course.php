@@ -7,6 +7,7 @@ use App\levels;
 use App\courses;
 use App\teachers;
 use App\sections;
+use App\materials;
 use App\categories;
 use App\courseGroups;
 use App\groupRequests;
@@ -153,4 +154,31 @@ class Course extends Controller
         //dd($allTeacherTable);
         return view('teacherModules.teacher_timeTable',[ 'times' => $allTeacherTable] );
     }
+
+    public function addMaterial(Request $request)
+    {   
+        $request->validate([
+            'file'=> 'required_if:update,false|mimes:pdf,doc,ppt,xls,docx,pptx,xlsx,rar,zip|max:1000',
+        ]);
+        
+        if($file = $request->file('file')){
+            $extension = $file->getClientOriginalExtension();
+            $name = date('Y-m-d-H-i-s', strtotime(date('Y-m-d H:i:s'))).$request['courseId'].".".$extension;
+            
+            if($file->move('Materials', $name)){
+                $mat = new materials();
+                $mat->materialUrl = $name;
+                $mat->materialUploadate = date('Y-m-d H:i:s');
+                $mat->courseId = $request['courseId'];
+                $mat->save();
+                return redirect()->back();
+            }
+        }
+        return redirect()->back();
+
+    }
+
+
+
+
 }
