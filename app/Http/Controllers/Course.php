@@ -141,9 +141,9 @@ class Course extends Controller
         $times              = courseGroups::getGroupsByTeacherId( $teacherId );
         $allGroupsTimes     = [];
         foreach( $times as $time ){
-            $courseData     = courses::getCourseId          ( $time['courseId']             );
+            $courseData     = courses   ::getCourseId          ( $time['courseId']             );
             $courseCategory = categories::getCategoryById   ( $courseData[0]['categoryId']  );
-            $level          = levels::getLevelById          ( $courseData[0]['courseLevel'] );
+            $level          = levels    ::getLevelById          ( $courseData[0]['courseLevel'] );
             $allGroupsTimes[$time['groupDay']][] = [
                 "groupId"               => $time['time'],
                 "courseId"              => $time['courseId'],
@@ -163,8 +163,41 @@ class Course extends Controller
 
     public function get_my_time_table(){
         $allTeacherTable            = $this->generate_time_table_array_from_groups( Auth::User()->id );
-        //dd($allTeacherTable);
         return view('teacherModules.teacher_timeTable',[ 'times' => $allTeacherTable] );
+    }
+
+    private function get_pending_request_array(){
+        $teacherId      = Auth                  ::User()->id;
+        $allGroups      = courseGroups          ::getGroupsByTeacherId( $teacherId );
+        $allRequests    = [];
+        foreach( $allGroups as $group ){
+            $allGroupRequest = groupRequests    ::getPenddingRequestsByGroupId( $group['groupId'] );
+            if(sizeof($allGroupRequest) > 0){
+                $courseData         = courses   ::getCourseId( $group['courseId'] );
+                $categoryName       = categories::getCategoryById($courseData[0]['categoryId']);
+                $level              = levels    ::getLevelById($courseData[0]['courseLevel']);
+                foreach( $allGroupRequest as $oneRequest ){
+                    $studentData    = User      ::getUserById( $oneRequest['studentId'] );
+                    $allRequests[]  = [
+                        "student_id"        => $studentData[0]['id'],
+                        "studentf_name"     => $studentData[0]['userFname'],
+                        "studentl_name"     => $studentData[0]['userLname'],
+                        "groupDay"          => $group['groupDay'],
+                        "groupTime"         => $group['groupTime'],
+                        "student_img"       => "imgs\male.png",
+                        "subject_name"      => $categoryName[0]['categoryName'],
+                        "level"             => $level[0]['levelName'],
+                        "group_id"          => $group['groupId']
+                    ];
+                }
+            }
+        }
+        return $allRequests;
+    }
+
+    public function get_pending_requests_for_teacher(){
+        $allRequests = $this->get_pending_request_array();
+        return view('course_group.course_pending_group',['pendingStudents'=>$allRequests]);
     }
 
 }

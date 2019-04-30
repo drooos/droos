@@ -23,5 +23,18 @@ class Admin extends Controller
 		$user = pendingAccounts::where('userId', $id)
 			->update(['approved' => 1]);
 		return $this->getPending();
-    }
+		}
+		
+		public function redirectUser(){
+			echo Auth::user()->userRule;
+			switch( Auth::user()->userRule ){
+					case "teacher":
+					//    return view('profiles.profile');
+					break;
+					
+					default: 
+					//return view('profiles.profile');
+					break;
+			}
+	}
 }

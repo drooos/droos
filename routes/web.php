@@ -3,12 +3,13 @@
 Auth::routes();
 
 //default route logic "not finished"
-Route::get  ('/'                            , function () {return view('layout');}      );
+Route::get  ('/'                            , function () {return view('layout');}          );
 
 // routes for accounts
-Route::get  ('/home'                        , 'users@redirectUser'                      );
-Route::post ('Profile/Edit'                 ,'HomeController@updateTeacher'             );
-Route::get  ('/logout'                      , 'users@logout'                            );
+Route::get  ('/home'                        , 'users@redirectUser'                          );
+Route::post ('Profile/Edit'                 , 'HomeController@updateTeacher'                );
+Route::get  ('Profile'                      , 'users@redirectUser'                          );
+Route::get  ('/logout'                      , 'users@logout'                                );
 
 //parent modules
 Route::view ('parent/linkSon'               , 'parentModules.link_son'                  );
@@ -28,9 +29,10 @@ Route::post ('teacher/courses/addGroup'     , 'Course@add_new_group'            
 
 //coures modules
 Route::get  ('course/show/{id}'             , 'course@get_course_full_details_by_Id'    );
+Route::get  ('course/groups/pending'        , 'course@get_pending_requests_for_teacher' );
 Route::get  ('/section/new/{id}'            , 'section@create_new_section'              );
 Route::post ('/section/takeAttendance'      , 'section@take_attendance'                 );
-
+Route::get  ('/group/{action}/{id}/{group}' , 'group@action_on_pending_account'         );
 //admin routs
 Route::get  ('manage_users'                 , 'admin@getPending'                        );
 Route::post ('manage_users'                 , 'admin@verifyAccount'                     );

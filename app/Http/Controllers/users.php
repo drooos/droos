@@ -17,14 +17,14 @@ class users extends Controller
         return Auth::user()->userRule;
     }
     
-    public static function redirectUser(){
-        switch( self::getUserRole() ){
+    public function redirectUser(){
+        switch( Auth::user()->userRule ){
             case "teacher":
                 return view('profiles.profile');
             break;
             
             default: 
-            return view('profiles.profile');
+                return view('profiles.profile');
             break;
         }
     }
@@ -34,9 +34,10 @@ class users extends Controller
         switch ( $userType ){
             case "teacher":
                 $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"/home"];
+                $navContent[] = ["icon"=>"far fa-user","title"=>" الصفحة الشخصية","link"=>"/Profile"];
                 $navContent[] = ["icon"=>"fas fa-plus-square","title"=>"اضافة كورس","link"=>"/teacher/addCourse"];
                 $navContent[] = ["icon"=>"fas fa-rocket","title"=>"الكورسات","link"=>"/teacher/teacherCourses"];
-                $navContent[] = ["icon"=>"far fa-user","title"=>" الصفحة الشخصية","link"=>"/profile"];
+                $navContent[] = ["icon"=>"fas fa-history","title"=>"الطلبات المعلقة","link"=>"/course/groups/pending"];
                 $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"/notification"];
                 $navContent[] = ["icon"=>"far fa-chart-pie","title"=>" جدول الحصص","link"=>"/teacher/TimeTabel"];
                 
