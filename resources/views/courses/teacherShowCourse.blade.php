@@ -97,7 +97,14 @@
         <hr>
         <div class="row">
             <h2>المنهج الدراسي</h2>
-            <button class="btn btn-primary"><a href="">رفع فايل جديد ++</a></button>
+            <form action="addmaterial" method="POST" enctype="multipart/form-data">
+                @csrf
+                <input class="form-control" type="file" name="file">
+                <input type="hidden" name="courseId" value="1">
+                <button type="submit" class="btn btn-primary">رفع فايل جديد ++</button>
+            </form>
+
+            
         </div>
     </div>
 @endsection

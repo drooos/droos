@@ -30,6 +30,7 @@ Route::post ('teacher/courses/addGroup'     , 'Course@add_new_group'            
 //coures modules
 Route::get  ('course/show/{id}'             , 'course@get_course_full_details_by_Id'    );
 Route::get  ('course/groups/pending'        , 'course@get_pending_requests_for_teacher' );
+Route::post ('course/show/addmaterial'      , 'course@addMaterial');    ///////////////
 Route::get  ('/section/new/{id}'            , 'section@create_new_section'              );
 Route::post ('/section/takeAttendance'      , 'section@take_attendance'                 );
 Route::get  ('/group/{action}/{id}/{group}' , 'group@action_on_pending_account'         );

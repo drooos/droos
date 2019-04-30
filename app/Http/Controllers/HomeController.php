@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -28,6 +29,29 @@ class HomeController extends Controller
     public function index()
     {
         return view('home');
+    }
+
+    public function ChangePic (Request $request) {
+        $request->validate([
+            'file'=> 'required_if:update,false|mimes:jpg,jpeg,gif|max:1000',
+        ]);
+        if($file = $request->file('file')){
+            $extension = $file->getClientOriginalExtension();
+            $name =  Auth::user()->id . ".".$extension;
+            
+            if($file->move('ProfilePics', $name)){
+
+                $user = User::findOrFail(Auth::user()->id);
+                $user->imagePath = $name;
+                $user->save();
+
+                return redirect()->back();
+            }
+        }
+        return redirect()->back();
+
+
+
     }
 
 
