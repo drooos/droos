@@ -6,7 +6,7 @@
                     if(is_null($parentDetails[0]['imagePath']))
                         $imagePath = URL::asset('imgs/female.png');
                     else
-                        $imagePath = URL::asset($parentDetails[0]['imagePath']);
+                        $imagePath = URL::asset('ProfilePics/'.$parentDetails[0]['imagePath']);
                 ?>
                 <h1>
                     معلومات ولي الامر

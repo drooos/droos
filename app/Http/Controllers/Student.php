@@ -8,7 +8,8 @@ use Illuminate\Database\Eloquent\Model;*/
 
 
 namespace App\Http\Controllers;
-
+use App\groupRequests;
+use App\courseGroups;
 use App\Http\Controllers\Controller;
 use Auth;
 use App\User;
@@ -18,8 +19,6 @@ use App\students;
 use App\teachers;
 use App\sections;
 use App\categories;
-use App\courseGroups;
-use App\groupRequests;
 
 class Student extends Controller
 {
@@ -37,6 +36,29 @@ class Student extends Controller
             'parentDetails' => $parentData ,
             'studentCode'   => $this->get_student_code( $studentId )
         ] );
+    }
+
+    public function joinGroup( $groupId ){
+
+        //check user role
+        if (Auth::User()->userRule != "student") { // Mosh Student
+            return redirect('/home');
+        }
+        //check group limit
+        if(courseGroups::IsFullGroup($groupId)){ // Malyan Ya3ny
+            return redirect('/home');
+        }
+        //check coursegroup & grouprequest existance 
+
+        if ( courseGroups::groupExist($groupId) && !groupRequests::requsetExist($groupId,Auth::User()->id)){
+            $req = new groupRequests();
+            $req->studentId = Auth::User()->id ;
+            $req->groupId = $groupId;
+            $req->save();
+        }
+
+        return redirect('/home');
+
     }
 
 }

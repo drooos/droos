@@ -7,12 +7,15 @@ use App\levels;
 use App\courses;
 use App\teachers;
 use App\sections;
+use App\materials;
 use App\categories;
 use App\courseGroups;
 use App\groupRequests;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
+use \Illuminate\Pagination\Paginator;
+use Illuminate\Pagination\LengthAwarePaginator;
 class Course extends Controller
 {
     public function get_new_course_form(){
@@ -181,9 +184,11 @@ class Course extends Controller
                 "courseLevel"           => $level[0]['levelName'],
                 "teacher_first_name"    => $teacherDetails[0]['userFname'],
                 "teacher_last_name"     => $teacherDetails[0]['userLname'],
+                "teacher_photo"         => $teacherDetails[0]['imagePath'],
                 "courseDescription"     => $courseData[0]['courseDescription'],
                 "groupTime"             => date("H:i", strtotime($groupDetails[0]['groupTime'])),
                 "endTime"               => date("H:i", strtotime($groupDetails[0]['groupTime'])+7200),
+                "groupDay"              => $groupDetails[0]['groupDay']
             ];
         }
 
@@ -233,9 +238,97 @@ class Course extends Controller
     public function get_student_time_table(){
         $studentId = Auth::User()->id;
         $times = [];
-        $times = $this->generate_time_table_array_by_student_id($studentId);
+        $times = $this->generate_time_table_array_by_student_id( $studentId );
         return view( 'studentModules.student_time_table',
             ['times'=>$times]
         );
+    }
+
+    public function get_student_courses(){
+        $studentId  = Auth::User()->id;
+        $times      = $this->generate_time_table_array_by_student_id( $studentId );
+        return view('courses.studentCourses', ['studentCourses' => $times]);
+    }
+    public function addMaterial(Request $request)
+    {   
+        $request->validate([
+            'file'=> 'required_if:update,false|mimes:pdf,doc,ppt,xls,docx,pptx,xlsx,rar,zip|max:1000',
+        ]);
+        
+        if($file = $request->file('file')){
+            $extension = $file->getClientOriginalExtension();
+            $name = date('Y-m-d-H-i-s', strtotime(date('Y-m-d H:i:s'))).$request['courseId'].".".$extension;
+            
+            if($file->move('Materials', $name)){
+                $mat = new materials();
+                $mat->materialUrl = $name;
+                $mat->materialUploadate = date('Y-m-d H:i:s');
+                $mat->courseId = $request['courseId'];
+                $mat->save();
+                return redirect()->back();
+            }
+        }
+        return redirect()->back();
+
+    }
+
+
+
+
+    public function getstudentscourses(){////////////////////////////////////////////////
+        $studentId      = Auth::User()->id;
+        $courses        = courses::getStudentsCourses( $studentId );
+        return view('courses.student_course_show')->with('courses', $courses);
+    }
+
+    public function getallcourses(Request $request){
+        $courses    = courses::getAllCourses();
+        $allCourses = [];
+        foreach( $courses as $course ){
+            $courseCategory = categories  ::getCategoryById  ( $course['categoryId']  );
+            $level          = levels      ::getLevelById     ( $course['courseLevel'] );
+            $teacherDetails = User        ::getUserById      ( $course['teacherId']   );
+            $allGroups      = courseGroups::getGroupsByCourseId( $course['courseId'] );
+            $allCourses[] = [
+                "courseId"              => $course['courseId'],
+                "level"                 => $level[0]['levelName'],
+                "course_desc"           => $course['courseDescription'],
+                "teacher_first_name"    => $teacherDetails[0]['userFname'],
+                "teacher_last_name"     => $teacherDetails[0]['userLname'],
+                "teacher_photo"         => $teacherDetails[0]['imagePath'],
+                "subject"               => $courseCategory[0]['categoryName'],
+                "groups_numbers"        => sizeof($allGroups)
+            ];
+        }
+        $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        $itemCollection = collect($allCourses);
+        $perPage = 3;
+        $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
+        $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
+        $paginatedItems->setPath($request->url());
+        return view('studentModules.allcourses', ['allCourses' => $paginatedItems]);
+    }
+
+    public function get_course_details_with_groups( $courseId ){
+        $courseGroups   = courseGroups  ::getGroupsByCourseId ( $courseId              );
+        $courseData     = courses       ::getCourseId         ( $courseId              );
+        $courseCategory = categories    ::getCategoryById     ( $courseData[0]['categoryId']  );
+        $level          = levels        ::getLevelById        ( $courseData[0]['courseLevel'] );
+        $teacherDetails = User          ::getUserById         ( $courseData[0]['teacherId']   );
+        $groupLimit     = [];
+
+        if( sizeof($courseGroups) ){
+            foreach( $courseGroups as $group ){
+                $groupLimit[] = sizeof(groupRequests::getGroupStudentByGroupId($group['groupId']));
+            }
+        }
+        return view('courses.course_details_groups',[
+            'groups'        => $courseGroups,
+            'courseData'    => $courseData[0],
+            'level'         => $level[0]['levelName'],
+            'subject'       => $courseCategory[0]['categoryName'],
+            'teacherData'   => $teacherDetails[0],
+            'groupLimit'    => $groupLimit
+        ]);
     }
 }

@@ -11,7 +11,7 @@ class groupRequests extends Model
     }
 
     public static function getGroupStudentByGroupId( $groupId ){
-        return groupRequests::where('groupId', $groupId)->where('isAcc',true)->get();
+        return groupRequests::where('groupId', $groupId)->where('isAcc',1)->get();
     }
 
     public static function getGroupsByStudentId( $studentId ){
@@ -25,5 +25,17 @@ class groupRequests extends Model
     public static function deleteRequestByStudentAndGroupId( $studentId, $groupId ){
         groupRequests::where('studentId', $studentId)->where('groupId',$groupId)->update(['isAcc'=>2]);
     }
-    
+
+    public static function leaveGroupByStudentIdAndGroupId( $studentId, $groupId ){
+        groupRequests::where('studentId', $studentId)->where('groupId',$groupId)->update(['isAcc'=>3]);
+    }
+
+
+    public static function requsetExist ($groupId , $studentId){
+        if(groupRequests::where([  ['studentId', '=', $studentId]  ,  ['groupId', '=', $groupId] ])->exists()){
+            return true;
+        }
+        return false;
+    }
 }
+

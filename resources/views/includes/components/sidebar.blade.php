@@ -13,7 +13,7 @@
         </div>
         <div class="img">
             <div class="img-cir">
-                <img src={{ URL::asset('imgs/male.png') }} alt="">
+                <img src={{ URL::asset('ProfilePics/'.$user[0]['imagePath']) }} alt="">
             </div>
         </div>
         <ul class="side-list remove-li">

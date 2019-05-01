@@ -17,9 +17,9 @@ class CreateMaterialsTable extends Migration
             $table->bigIncrements('materialId');
             $table->string('materialUrl');
             $table->date('materialUploadate');
-            $table->unsignedBigInteger('groupId');// refers to coursegroups.groupId
+            $table->unsignedBigInteger('courseId');// refers to coursegroups.groupId
             $table->timestamps();
-            $table->foreign('groupId')->references('groupId')->on('course_groups');
+            $table->foreign('courseId')->references('courseId')->on('courses');
         });
     }
 
