@@ -29,4 +29,13 @@ class groupRequests extends Model
     public static function leaveGroupByStudentIdAndGroupId( $studentId, $groupId ){
         groupRequests::where('studentId', $studentId)->where('groupId',$groupId)->update(['isAcc'=>3]);
     }
+
+
+    public static function requsetExist ($groupId , $studentId){
+        if(groupRequests::where([  ['studentId', '=', $studentId]  ,  ['groupId', '=', $groupId] ])->exists()){
+            return true;
+        }
+        return false;
+    }
 }
+

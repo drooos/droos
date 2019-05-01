@@ -49,7 +49,12 @@ Route::get ( '/student_course_show'         , 'course@getstudentscourses'       
 Route::get ( '/allcourses'                  , 'course@getallcourses'                   );
 
 
+Route::get  ('student/join/course/{id}'     , 'student@joinGroup'); ///////////////////////
 
 // testing routs
 Route::get  ('testc'                        , 'users@getInfoForActiveUser'              );
 Route::view ('test'                         , 'courses.teacherShowCourse'               );
+
+//Profile
+Route::get  ('/profile/{id}'                , 'users@VisitProfile'                      );
+
