@@ -78,4 +78,11 @@ class users extends Controller
     public function logout(){
         return view('includes.components.logout');
     }
+
+    public function VisitProfile ($id){
+        $user = User::where('id', $id)->get();
+        $usr = $user[0];
+        return view('profiles.visitProfile', ['user'=>$usr]);
+    }
+
 }

@@ -21,11 +21,17 @@ class Student extends Controller
 
     public function joinGroup( $groupId ){
 
-        if (Auth::User()->userRule != "student") {
+        //check user role
+        if (Auth::User()->userRule != "student") { // Mosh Student
             return redirect('/home');
         }
+        //check group limit
+        if(courseGroups::IsFullGroup($groupId)){ // Malyan Ya3ny
+            return redirect('/home');
+        }
+        //check coursegroup & grouprequest existance 
 
-        if ( courseGroups::groupExist($groupId) && !groupRequests::requsetExist($groupId,Auth::User()->id)){ // && req ! exist
+        if ( courseGroups::groupExist($groupId) && !groupRequests::requsetExist($groupId,Auth::User()->id)){
             $req = new groupRequests();
             $req->studentId = Auth::User()->id ;
             $req->groupId = $groupId;
