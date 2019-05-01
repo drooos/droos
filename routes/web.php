@@ -18,8 +18,6 @@ Route::view ('parent/linkSon'               , 'parentModules.link_son'          
 Route::post ('parent/linkSon'               , 'Parents@link_parent_to_son'              );
 Route::post ('parent/finishLink'            , 'Parents@finish_link'                     );
 Route::get  ('parent/mySons'                , 'parents@parent_sons'                     );
-// time table
-Route::get  ('timeTable'                    ,function(){return view('timeTable.timeTable');});
 
 //teacher modules
 Route::get  ('teacher/addCourse'            , 'Course@get_new_course_form'              );

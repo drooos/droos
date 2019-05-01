@@ -238,7 +238,7 @@ class Course extends Controller
     public function get_student_time_table(){
         $studentId = Auth::User()->id;
         $times = [];
-        $times = $this->generate_time_table_array_by_student_id($studentId);
+        $times = $this->generate_time_table_array_by_student_id( $studentId );
         return view( 'studentModules.student_time_table',
             ['times'=>$times]
         );
@@ -275,10 +275,9 @@ class Course extends Controller
 
 
 
-    public function getstudentscourses(){
+    public function getstudentscourses(){////////////////////////////////////////////////
         $studentId      = Auth::User()->id;
         $courses        = courses::getStudentsCourses( $studentId );
-
         return view('courses.student_course_show')->with('courses', $courses);
     }
 
