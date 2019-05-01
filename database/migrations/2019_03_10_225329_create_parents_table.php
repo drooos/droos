@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreateParentsTable extends Migration
 {
     /**
@@ -15,17 +14,12 @@ class CreateParentsTable extends Migration
     {
         Schema::create('parents', function (Blueprint $table) {
             $table->unsignedBigInteger('parentId'); // Refers to users.userId
-            $table->string('parentPhone');
+            $table->string('linkCode');
             $table->timestamps();
             $table->foreign('parentId')->references('id')->on('users');
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('parents');

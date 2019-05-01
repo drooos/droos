@@ -9,34 +9,25 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    /*
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
-    */
     protected $guarded = [];
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
+    
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function getUserById($userId){
+        $userById = User::where('id', $userId)->get();
+        return $userById;
+    }
+
+    public static function get_pending_users(){
+        return User::where('verified',0)->where('userRule','!=','Admin')->get();
+    }
+
+    public static function activate_account( $userId ){
+        User::where('id', $userId )->update(['verified'=>'1']);
+    }
 }

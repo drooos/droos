@@ -16,6 +16,7 @@ class CreateGroupRequestsTable extends Migration
         Schema::create('group_requests', function (Blueprint $table) {
             $table->unsignedBigInteger('studentId'); // Refers to students.studentId
             $table->unsignedBigInteger('groupId'); // Refers to groups.groupId
+            $table->integer('isAcc')->default(0);
             $table->timestamps();
             $table->foreign('studentId')->references('studentId')->on('students');
             $table->foreign('groupId')->references('groupId')->on('course_groups');
