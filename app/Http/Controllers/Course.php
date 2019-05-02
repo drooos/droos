@@ -293,6 +293,9 @@ class Course extends Controller
 
     }
 
+
+
+
     public function getstudentscourses(){////////////////////////////////////////////////
         $studentId      = Auth::User()->id;
         $courses        = courses::getStudentsCourses( $studentId );
