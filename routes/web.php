@@ -30,8 +30,8 @@ Route::post ('/section/takeAttendance'      , 'section@take_attendance'         
 Route::get  ('/group/{action}/{id}/{group}' , 'group@action_on_pending_account'         )->middleware('teacher');
 Route::get  ('course/{id}'                  , 'course@get_course_details_with_groups'   );
 //admin routs
-Route::get  ('manage_users'                 , 'admin@getPending'                        );
-Route::post ('manage_users'                 , 'admin@verifyAccount'                     );
+Route::get  ('manage_users'                 , 'admin@getPending'                        )->middleware('admin');
+Route::post ('manage_users'                 , 'admin@verifyAccount'                     )->middleware('admin');
 //student modules
 Route::get  ('student/parent'               , 'student@get_my_parent'                   )->middleware('student');
 Route::get  ('student/timeTable'            , 'Course@get_student_time_table'           )->middleware('student');
@@ -44,4 +44,4 @@ Route::get  ('student/join/course/{id}'     , 'student@joinGroup'               
 Route::get  ('testc'                        , 'users@getInfoForActiveUser'              );
 Route::view ('test'                         , 'courses.teacherShowCourse'               );
 //Profile
-Route::get  ('/profile/{id}'                , 'users@VisitProfile'                      )->middleware('auth');;
+Route::get  ('/profile/{id}'                , 'users@VisitProfile'                      )->middleware('auth');

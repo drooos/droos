@@ -1,20 +1,6 @@
+@extends('home')
+@section('homeContent')
 
-<!------ Include the above in your HEAD tag ---------->
-<style>
-    .container{
-        padding:5%;
-    }
-    .container .img{
-        text-align:center;
-    }
-    .container .details{
-        border-left:3px solid #ded4da;
-    }
-    .container .details p{
-        font-size:15px;
-        font-weight:bold;
-    }
-</style>
 <div class="container">
   <div class="row">
     <div class="col-md-6 img">
@@ -27,8 +13,8 @@
       </blockquote>
       <p>
             {{$user->teacherDetails}} <br>
-
       </p>
     </div>
   </div>
 </div>
+@endsection

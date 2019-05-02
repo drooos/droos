@@ -1,5 +1,6 @@
 @extends('home')
 @section('homeContent')
+@section()
     <button type="button" class="btn btn-dark">
         <a href="linkSon">
             اضافة ابن
