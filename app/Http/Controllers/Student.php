@@ -22,6 +22,10 @@ use App\categories;
 
 class Student extends Controller
 {
+    public function __construct(){
+        return $this->middleware('auth');
+    }
+    
     private function get_student_code( $studentId ){
         return students::getStudentById( $studentId )[0]['linkCode'];
     }

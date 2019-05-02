@@ -11,6 +11,9 @@ use App\Http\Controllers\Controller;
 
 class section extends Controller
 {
+    public function __construct(){
+        return $this->middleware('auth');
+    }
     public function create_new_section( $groupId ){
         $isCreated           = sections::getSectionByDateAndGroupId( date('Y-m-d') , $groupId);
         $sectionNumber       = sections::getSectionNumberByGroupId( $groupId );
