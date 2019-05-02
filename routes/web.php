@@ -44,9 +44,10 @@ Route::get  ('student/parent'               , 'student@get_my_parent'           
 Route::get  ('student/timeTable'            , 'Course@get_student_time_table'           );
 Route::get  ('student/courses'              , 'Course@get_student_courses'              );
 Route::get  ('student/course/{id}/leave'    , 'group@student_leave_group_by_group_id'   );
-Route::get ( '/student_course_show'         , 'course@getstudentscourses'              );
-Route::get ( '/allcourses'                  , 'course@getallcourses'                   );
-
+Route::get  ('sons/timeTable'               , 'course@get_sons_time_table'              );
+Route::get  ('sons/timeTable/{id}'          , 'course@get_sons_time_table'              );
+Route::get  ('/student_course_show'         , 'course@getstudentscourses'              );
+Route::get  ('/allcourses'                  , 'course@getallcourses'                   );
 
 Route::get  ('student/join/course/{id}'     , 'student@joinGroup'); ///////////////////////
 

@@ -1,5 +1,8 @@
 @extends('home')
 @section('homeContent')
+@section('navTitle')
+معلومات ولي الامر
+@endsection
     <div class="container">
             @if(sizeof($parentDetails) > 0)
                 <?php 

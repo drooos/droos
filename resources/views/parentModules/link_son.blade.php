@@ -1,5 +1,8 @@
 @extends('home')
 @section('homeContent')
+@section('navTitle')
+البحث وربط الابناء
+@endsection
     <div class="container">
         <form action="/parent/linkSon" method="POST">
             @csrf

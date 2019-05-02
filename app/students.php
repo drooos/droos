@@ -40,4 +40,8 @@ class students extends Model
     public static function getParentByStudentId( $studentId ){
         return students::where('studentId',$studentId)->get();
     }
+
+    public static function isSonForThisParent( $sonId, $parentId ){
+        return students::where('studentId',$sonId)->where('parentId',$parentId)->get();
+    }
 }

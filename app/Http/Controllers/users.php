@@ -63,6 +63,7 @@ class users extends Controller
             case "parent":
                 $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"dashboard"];
                 $navContent[] = ["icon"=>"far fa-user","title"=>" الصفحة الشخصية","link"=>"/Profile"];
+                $navContent[] = ["icon"=>"far fa-table","title"=>"جدول الابناء","link"=>"/sons/timeTable"];
                 $navContent[] = ["icon"=>"fal fa-child","title"=>"ابنائي","link"=>"/parent/mySons"];
                 $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"notification"];
             break;

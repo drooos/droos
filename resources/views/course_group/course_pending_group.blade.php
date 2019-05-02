@@ -8,7 +8,7 @@
             <div class="col-lg-3">
                 <div class="card card-cascade narrower">
                     <div class="view view-cascade overlay">
-                    <img  class="card-img-top" src={{ URL::asset($student['student_img']) }} alt="Card image cap">
+                    <img  class="card-img-top" src={{ URL::asset('ProfilePics/'.$student['student_img']) }} alt="Card image cap">
                     <a>
                         <div class="mask rgba-white-slight"></div>
                     </a>

@@ -1,5 +1,8 @@
 @extends('home')
 @section('homeContent')
+@section('navTitle')
+جدولي
+@endsection
 <div class="home col-lg-12">
     <div class="row">
         <div class="cd-schedule loading">

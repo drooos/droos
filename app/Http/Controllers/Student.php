@@ -56,9 +56,7 @@ class Student extends Controller
             $req->groupId = $groupId;
             $req->save();
         }
-
-        return redirect('/home');
-
+        return redirect('/allcourses');
     }
 
 }

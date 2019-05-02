@@ -97,9 +97,8 @@ class HomeController extends Controller
             }
             else
             {           
-              $error = array('prevpass' => 'كلمه المرور خاطيئه'); 
+                $error = array('prevpass' => 'كلمه المرور خاطيئه'); 
             }
-
         }
         return redirect('home');
         

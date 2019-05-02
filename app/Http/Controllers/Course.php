@@ -5,6 +5,7 @@ use Auth;
 use App\User;
 use App\levels;
 use App\courses;
+use App\students;
 use App\teachers;
 use App\sections;
 use App\materials;
@@ -219,7 +220,7 @@ class Course extends Controller
                         "studentl_name"     => $studentData[0]['userLname'],
                         "groupDay"          => $group['groupDay'],
                         "groupTime"         => $group['groupTime'],
-                        "student_img"       => "imgs\male.png",
+                        "student_img"       => $studentData[0]['imagePath'],
                         "subject_name"      => $categoryName[0]['categoryName'],
                         "level"             => $level[0]['levelName'],
                         "group_id"          => $group['groupId']
@@ -242,6 +243,26 @@ class Course extends Controller
         return view( 'studentModules.student_time_table',
             ['times'=>$times]
         );
+    }
+
+    public function get_sons_time_table( $studentId ){
+        if(sizeof(students::isSonForThisParent($studentId,Auth::User()->id))){
+            $times      = [];
+            $times      = $this->generate_time_table_array_by_student_id( $studentId );
+            $sonDetails = User::getUserById($studentId);
+            return view( 'parentModules.sons_time_table',[
+                    'times'=>$times,
+                    'student'=>$sonDetails
+                ]
+            );
+        }else{
+            $message = error::getMessege();
+            return view( 'parentModules.parent_Not_found',[
+                "comment" =>$message['comment'],
+                "image"=>'errorPics/'.$message['image']
+            ]);
+        }
+        
     }
 
     public function get_student_courses(){
@@ -272,9 +293,6 @@ class Course extends Controller
 
     }
 
-
-
-
     public function getstudentscourses(){////////////////////////////////////////////////
         $studentId      = Auth::User()->id;
         $courses        = courses::getStudentsCourses( $studentId );
@@ -302,7 +320,7 @@ class Course extends Controller
         }
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
         $itemCollection = collect($allCourses);
-        $perPage = 3;
+        $perPage = 4;
         $currentPageItems = $itemCollection->slice(($currentPage * $perPage) - $perPage, $perPage)->all();
         $paginatedItems= new LengthAwarePaginator($currentPageItems , count($itemCollection), $perPage);
         $paginatedItems->setPath($request->url());

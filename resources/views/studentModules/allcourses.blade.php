@@ -1,5 +1,8 @@
 @extends('home')
 @section('homeContent')
+@section('navTitle')
+جميع الكورسات
+@endsection
     <div class="container home"> 
         <div class="row">
                 @foreach($allCourses as $onecourse)

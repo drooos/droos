@@ -1,4 +1,7 @@
 @extends('home')
+@section('navTitle')
+الصفحة الشخصية
+@endsection
 @section('homeContent')
     <div class="container home">
         <div class="row">
