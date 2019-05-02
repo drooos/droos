@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 
 use App\User;
+use \App\UserFactory;
 
 class users extends Controller
 {
@@ -82,6 +83,30 @@ class users extends Controller
     public function VisitProfile ($id){
         $user = User::where('id', $id)->get();
         $usr = $user[0];
+        $userDB = UserFactory::build($usr->userRule);
+
+        switch($usr->userRule){
+                
+            case "parent": {
+                $usr = $userDB::where('parentId', $id)->join('users', 'parents.parentId', '=', 'users.id')->select('parents.*', 'users.*')->get();
+                return view('profiles.visitProfile', ['user'=>$usr[0]]);
+            }
+            break;
+            case "teacher": {
+                $usr = $userDB::where('teacherId', $id)->join('users', 'teachers.teacherId', '=', 'users.id')->get();
+                return view('profiles.visitProfile', ['user'=>$usr[0]]);
+            }
+            break;
+            case "student": {
+                $usr = $userDB::where('studentId', $id)->join('users', 'students.studentId', '=', 'users.id')->get();
+                return view('profiles.visitProfile', ['user'=>$usr[0]]);
+            }
+            break;
+
+        }
+
+        
+        
         return view('profiles.visitProfile', ['user'=>$usr]);
     }
 

@@ -26,7 +26,7 @@
         <small><cite title="Source Title">{{$user->userNumber}} <i class="icon-map-marker"></i></cite></small>
       </blockquote>
       <p>
-            {{$user->email}} <br>
+            {{$user->teacherDetails}} <br>
 
       </p>
     </div>
