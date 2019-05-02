@@ -13,6 +13,8 @@ use App\categories;
 use App\courseGroups;
 use App\groupRequests;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Input;
 use \Illuminate\Pagination\Paginator;
@@ -61,7 +63,7 @@ class Course extends Controller
         return view('courses.teacherCourse', ['courses' => $coursesDetails]);
     }
 
-    public function get_course_full_details_by_Id( $courseId ){
+    public function get_course_full_details_by_Id( $courseId ){/////
         $courseData         = $this->get_course_full_data       ( $courseId );
         $courseGroupData    = courseGroups::getGroupsByCourseId ( $courseId );
         $courseGroupsAll    = [];
@@ -81,10 +83,12 @@ class Course extends Controller
                 'sectionNum'        => sizeof( $sections )
             ];
         }
+        $materials = DB::table('materials')->where('courseId', $courseId)->get();
         return view('courses.teacherShowCourse', [
             'courseAll' => $courseData,
             'groups'    => $courseGroupsAll,
-            'courseId'  => $courseId
+            'courseId'  => $courseId,
+            'materials' => $materials
         ]);
     }
 
