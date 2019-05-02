@@ -1,10 +1,9 @@
 <?php $teacherDetails = App\teachers::GetTeacherDetails(); ?>
-<div class="edit-profile">
+<div class="edit-profile example z-depth-3">
     <h4>تعديل الصفحة الشخصية</h4>
 <form action="Profile/Edit" method="POST">
         @csrf
         <div class="container">
-
             <div class="row">
                 <div class="col-6">
                     <div class="form-group">

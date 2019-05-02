@@ -1,5 +1,5 @@
 <?php $user = App\Http\Controllers\users::getInfoForActiveUser();?>
-<div class="profile-card">
+<div class="profile-card example z-depth-3">
     <div class="top">
         <img src="imgs/14.jpg" alt="">
     </div>
@@ -9,8 +9,9 @@
     <div class="down">
             <form action="home/ChangePic" method="POST" enctype="multipart/form-data">
                 @csrf
-                <input class="form-control" type="file" name="file">
-                <button type="submit" class="btn btn-primary">تغيير</button>
+                
+                <input class="form-control custom-file-input" type="file" name="file"  id="inputGroupFile01">
+                <button type="submit" class="btn btn-primary btn-sm">تغيير</button>
             </form>
         <p class="name">{{ $user[0]['userFname'] }} {{ $user[0]['userLname'] }} </p>
         <p class="username"> {{ $user[0]['email'] }}</p>

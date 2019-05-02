@@ -1,7 +1,7 @@
 
 <?php $user = App\Http\Controllers\users::getInfoForActiveUser();?>
 
-<aside class="sidebar">
+<aside class="sidebar z-depth-5">
     <div class="container">
         <div class="row">
             <div class="col-12">
