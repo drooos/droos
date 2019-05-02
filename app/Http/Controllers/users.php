@@ -47,7 +47,7 @@ class users extends Controller
                 
             break;
             case "admin":
-                $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"/dashboard"];
+                $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"/student_course_show"];
                 $navContent[] = ["icon"=>"fas fa-history","title"=>"الحسابات المعلقة","link"=>"/manage_users"];
                 $navContent[] = ["icon"=>"far fa-user","title"=>" الصفحة الشخصية","link"=>"/Profile"];
                 $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"/notification"];
@@ -55,7 +55,7 @@ class users extends Controller
             break;
 
             case "student":
-                $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"/dashboard"];
+                //$navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"/dashboard"];
                 $navContent[] = ["icon"=>"far fa-bell","title"=>" جميع المواد","link"=>"/allcourses"];
                 $navContent[] = ["icon"=>"far fa-user","title"=>" الصفحة الشخصية","link"=>"/Profile"];
                 $navContent[] = ["icon"=>"far fa-bolt","title"=>"ولي الامر","link"=>"/student/parent"];
@@ -65,7 +65,7 @@ class users extends Controller
 
             break;
             case "parent":
-                $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"dashboard"];
+                $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"/student_course_show"];
                 $navContent[] = ["icon"=>"far fa-user","title"=>" الصفحة الشخصية","link"=>"/Profile"];
                 $navContent[] = ["icon"=>"far fa-table","title"=>"جدول الابناء","link"=>"/sons/timeTable"];
                 $navContent[] = ["icon"=>"fal fa-child","title"=>"ابنائي","link"=>"/parent/mySons"];

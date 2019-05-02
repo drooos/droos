@@ -137,7 +137,7 @@ class Course extends Controller
     }
 
     private function generate_time_table_array_by_student_id( $studentId ){
-        return adapterController::Adapt_generate_time_table_array_by_student_id();
+        return adapterController::Adapt_generate_time_table_array_by_student_id($studentId );
     }
 
     public function get_my_time_table(){

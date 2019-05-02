@@ -14,6 +14,7 @@ Route::view ('parent/linkSon'               , 'parentModules.link_son'          
 Route::post ('parent/linkSon'               , 'Parents@link_parent_to_son'              )->middleware('parent');
 Route::post ('parent/finishLink'            , 'Parents@finish_link'                     )->middleware('parent');
 Route::get  ('parent/mySons'                , 'parents@parent_sons'                     )->middleware('parent');
+Route::get  ('sons/timeTable'                , 'course@parent_sons'                     )->middleware('parent');
 //teacher modules
 Route::get  ('teacher/addCourse'            , 'Course@get_new_course_form'              )->middleware('teacher');
 Route::get  ('teacher/TimeTabel'            , 'Course@get_my_time_table'                )->middleware('teacher');
@@ -43,5 +44,7 @@ Route::get  ('student/join/course/{id}'     , 'student@joinGroup'               
 // testing routs
 Route::get  ('testc'                        , 'users@getInfoForActiveUser'              );
 Route::view ('test'                         , 'courses.teacherShowCourse'               );
+Route::get('signup',function(){
+    return view('auth.register');});
 //Profile
 Route::get  ('/profile/{id}'                , 'users@VisitProfile'                      )->middleware('auth');
