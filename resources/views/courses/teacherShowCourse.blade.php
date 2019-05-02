@@ -1,16 +1,18 @@
 @extends('home')
 @section('homeContent')
+@section('navTitle')
+<h2>
+    معلومات المدرس والمادة
+</h2>
+@endsection
     <div class="container home"> 
         <div class="row">
             <div class="col-lg-12">
                 <div class="container">
-                    <h2>
-                        معلومات المدرس والمادة
-                    </h2>
                     <div class="card mb-3" style="max-width: 540px;">
                         <div class="row no-gutters">
                             <div class="col-md-4">
-                                <img src={{ URL::asset('imgs/male.png') }} class="card-img" alt="">
+                                <img src={{ URL::asset('ProfilePics/'.$teacher_data[0]['imagePath']) }} class="card-img" alt="">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -103,32 +105,31 @@
                 <input type="hidden" name="courseId" value="1">
                 <button type="submit" class="btn btn-primary">رفع فايل جديد ++</button>
             </form>
+            <?php $i=0;?>
             <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">ملف</th>
-                    <th scope="col">تحميل</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  
-                    @foreach($materials as $mat)
-                        <tr>
-                            <td>{{$mat->materialUploadate}}</td>
-                            <td>
-                                <form action="" method="POST">
-                                    @csrf
-                                    <input name="url" type="hidden" value="{{$mat->materialUrl}}">
-                                    <button type="submit" class="btn btn-primary">تحميل</button>
-                                </form>
-                                
-                            </td>
-                        </tr>
-                    @endforeach
-                  
-                </tbody>
-              </table>
-            
-        </div>
+                    <thead class="black white-text">
+                            <tr>
+                                <th>رقم الاسبوع</th>
+                                <th>الملف</th>
+                                <th>تحميل</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                      @foreach($materials as $mat)
+                      <tr>
+                          <th scope="row">
+                              {{ $i++ }}
+                            </th>
+                          <td>
+                              {{$mat->materialUploadate}}
+                          </td>
+                          <td>
+                              <button type="button" class="btn btn-indigo btn-sm m-0">تحميل</button>
+                          </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
     </div>
+</div>
 @endsection

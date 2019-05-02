@@ -88,7 +88,8 @@ class Course extends Controller
             'courseAll' => $courseData,
             'groups'    => $courseGroupsAll,
             'courseId'  => $courseId,
-            'materials' => $materials
+            'materials' => $materials,
+            'teacher_data'=>User::getUserById(Auth::User()->id)
         ]);
     }
 
