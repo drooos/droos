@@ -103,7 +103,31 @@
                 <input type="hidden" name="courseId" value="1">
                 <button type="submit" class="btn btn-primary">رفع فايل جديد ++</button>
             </form>
-
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ملف</th>
+                    <th scope="col">تحميل</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                    @foreach($materials as $mat)
+                        <tr>
+                            <td>{{$mat->materialUploadate}}</td>
+                            <td>
+                                <form action="" method="POST">
+                                    @csrf
+                                    <input name="url" type="hidden" value="{{$mat->materialUrl}}">
+                                    <button type="submit" class="btn btn-primary">تحميل</button>
+                                </form>
+                                
+                            </td>
+                        </tr>
+                    @endforeach
+                  
+                </tbody>
+              </table>
             
         </div>
     </div>
