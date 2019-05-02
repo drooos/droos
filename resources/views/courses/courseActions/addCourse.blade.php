@@ -1,18 +1,23 @@
-<div class="edit-profile ">
+
+@extends('home')
+@section('homeContent')
+
+<div class="edit-profile col-md-5">
     <h4>اضافة مادة دراسية</h4>
-    <form action="">
+    <form action="/teacher/addCourse" method="POST">
+        @csrf
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-md-12">
                     <div class="form-group">
-                        <label for="level">الصف</label>
+                        <label for="level">الصف الدراسي</label>
                         <select class="form-control" id="level" name="level">
-                            <!-- هنا هيبقي فيه الصفوف كلها بس لما تتضاف في الداتابيز هتبقي زي الاولي كدا-->
-                            <option value="1">الاول الاعدادي</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option value="0">اختار الصف ...</option>
+                            @foreach($levels as $level)
+                                <option value = {{ $level->id }}>
+                                    {{ $level->levelName }}
+                                </option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -21,14 +26,14 @@
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
-                        <label for="subject">المادة</label>
+                        <label for="subject">المادة الدراسية</label>
                         <select class="form-control" id="subject" name="subject">
-                            <!-- ديه هتبقي فيها الحاجات اللي بيدرسها المدرس مش كل المواد-->
-                            <option value="1">دراسات اجتماعية</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
+                            <option value="0"> اختار المادة الدراسية ...</option>
+                            @foreach($subjects as $subject)
+                                <option value="{{ $subject->categoryId }}">
+                                    {{ $subject->categoryName }}
+                                </option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -38,7 +43,7 @@
                 <div class="col-12">
                     <div class="form-group">
                         <label for="about"> الوصف</label>
-                        <textarea class="form-control" id="about" rows="4"></textarea>
+                        <textarea class="form-control" id="about" rows="4" name="desc"></textarea>
                     </div>
                 </div>
             </div>
@@ -48,3 +53,4 @@
         </div>
     </form>
 </div>
+@endsection

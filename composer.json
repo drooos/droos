@@ -28,7 +28,9 @@
     },
     "extra": {
         "laravel": {
-            "dont-discover": []
+            "dont-discover": [
+                "laravel/dusk"
+            ]
         }
     },
     "autoload": {
@@ -43,6 +45,7 @@
     "autoload-dev": {
         "psr-4": {
             "Tests\\": "tests/"
+            
         }
     },
     "minimum-stability": "dev",
