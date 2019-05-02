@@ -9,6 +9,10 @@ use App\Http\Controllers\Controller;
 
 class Admin extends Controller
 {
+
+	public function __construct(){
+		return $this->middleware('auth');
+	}
     public function getPending(){
 		$pending_users = User::get_pending_users();
 		return view('adminModules.admin_manage_users', [

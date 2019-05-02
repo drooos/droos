@@ -55,11 +55,16 @@ class Kernel extends HttpKernel
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
-        'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
-        'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
-        'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        'can'       => \Illuminate\Auth\Middleware\Authorize::class,
+        'guest'     => \App\Http\Middleware\RedirectIfAuthenticated::class,
+        'signed'    => \Illuminate\Routing\Middleware\ValidateSignature::class,
+        'throttle'  => \Illuminate\Routing\Middleware\ThrottleRequests::class,
+        'verified'  => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        "teacher"   =>\App\Http\Middleware\checkTeacher::class,
+        "student"   =>\App\Http\Middleware\checkStudent::class,
+        "admin"   =>\App\Http\Middleware\checkAdmin::class,
+        "parent"   =>\App\Http\Middleware\checkParent::class,
+        "ver"   =>\App\Http\Middleware\checkIsver::class,
     ];
 
     /**

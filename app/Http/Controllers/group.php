@@ -16,6 +16,10 @@ use App\Http\Controllers\Controller;
 
 class group extends Controller
 {
+    public function __construct(){
+        return $this->middleware('auth');
+    }
+    
     public function action_on_pending_account( $action, $id , $group ){
         echo $action. $id . $group;
         if( $action == 'active' ){

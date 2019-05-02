@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-
 use App\User;
 
 class users extends Controller
@@ -13,6 +12,10 @@ class users extends Controller
     /*
         this function know what is user Role
     */
+    public function __construct(){
+        return $this->middleware('auth');
+    }
+
     public static function getUserRole(){
         return Auth::user()->userRule;
     }
