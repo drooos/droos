@@ -33,7 +33,7 @@ class HomeController extends Controller
 
     public function ChangePic (Request $request) {
         $request->validate([
-            'file'=> 'required_if:update,false|mimes:jpg,jpeg,gif|max:1000',
+            'file'=> 'required_if:update,false|mimes:jpg,jpeg,gif|max:9000',
         ]);
         if($file = $request->file('file')){
             $extension = $file->getClientOriginalExtension();

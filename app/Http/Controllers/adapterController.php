@@ -112,7 +112,7 @@ class adapterController extends Controller
                         "studentl_name"     => $studentData[0]['userLname'],
                         "groupDay"          => $group['groupDay'],
                         "groupTime"         => $group['groupTime'],
-                        "student_img"       => "imgs\male.png",
+                        "student_img"       => $studentData[0]['imagePath'],
                         "subject_name"      => $categoryName[0]['categoryName'],
                         "level"             => $level[0]['levelName'],
                         "group_id"          => $group['groupId']

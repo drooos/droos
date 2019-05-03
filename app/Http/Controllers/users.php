@@ -52,6 +52,7 @@ class users extends Controller
                 $navContent[] = ["icon"=>"far fa-user","title"=>" الصفحة الشخصية","link"=>"/Profile"];
                 $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"/notification"];
                 $navContent[] = ["icon"=>"fal fa-plus-circle","title"=>"اضافة ادمن جديد","link"=>"/addnewadmin"];
+                $navContent[] = ["icon"=>"fal fa-plus-circle","title"=>"جبر باشا","link"=>"/addnewadmin"];
             break;
 
             case "student":
@@ -67,7 +68,7 @@ class users extends Controller
             case "parent":
                 $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"/student_course_show"];
                 $navContent[] = ["icon"=>"far fa-user","title"=>" الصفحة الشخصية","link"=>"/Profile"];
-                $navContent[] = ["icon"=>"far fa-table","title"=>"جدول الابناء","link"=>"/sons/timeTable"];
+                $navContent[] = ["icon"=>"far fa-table","title"=>"جدول الابناء","link"=>"/sons/timeTable/3"];
                 $navContent[] = ["icon"=>"fal fa-child","title"=>"ابنائي","link"=>"/parent/mySons"];
                 $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"notification"];
             break;

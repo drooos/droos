@@ -14,7 +14,7 @@ Route::view ('parent/linkSon'               , 'parentModules.link_son'          
 Route::post ('parent/linkSon'               , 'Parents@link_parent_to_son'              )->middleware('parent');
 Route::post ('parent/finishLink'            , 'Parents@finish_link'                     )->middleware('parent');
 Route::get  ('parent/mySons'                , 'parents@parent_sons'                     )->middleware('parent');
-Route::get  ('sons/timeTable'                , 'course@parent_sons'                     )->middleware('parent');
+Route::get  ('sons/timeTable/{studentId}'                ,'course@get_sons_time_table'                     )->middleware('parent');
 //teacher modules
 Route::get  ('teacher/addCourse'            , 'Course@get_new_course_form'              )->middleware('teacher');
 Route::get  ('teacher/TimeTabel'            , 'Course@get_my_time_table'                )->middleware('teacher');
