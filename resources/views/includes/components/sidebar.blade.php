@@ -24,6 +24,9 @@
                 <li>
                     <i class="{{ $item['icon'] }}"></i>
                     <span><a href="{{ $item['link'] }}">{{ $item['title'] }}</a></span>
+                    @if(isset( $item['number'] ))
+                        <span class="badge badge-pill badge-secondary">{{ $item['number'] }}</span>
+                    @endif
                 </li>
             @endforeach
             <li> 

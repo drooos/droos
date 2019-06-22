@@ -38,10 +38,10 @@ class users extends Controller
             case "teacher":
                 $navContent[] = ["icon"=>"far fa-tachometer-alt","title"=>"الرئيسية","link"=>"/home"];
                 $navContent[] = ["icon"=>"far fa-user","title"=>" الصفحة الشخصية","link"=>"/Profile"];
-                $navContent[] = ["icon"=>"fas fa-plus-square","title"=>"اضافة كورس","link"=>"/teacher/addCourse"];
-                $navContent[] = ["icon"=>"fas fa-rocket","title"=>"الكورسات","link"=>"/teacher/teacherCourses"];
-                $navContent[] = ["icon"=>"fas fa-history","title"=>"الطلبات المعلقة","link"=>"/course/groups/pending"];
-                $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"/notification"];
+                $navContent[] = ["icon"=>"fas fa-plus-square","title"=>"اضافة كورس ","link"=>"/teacher/addCourse"];
+                $navContent[] = ["icon"=>"fas fa-rocket","title"=>"الكورسات","link"=>"/teacher/teacherCourses", "number"=>0];
+                $navContent[] = ["icon"=>"fas fa-history","title"=>"الطلبات المعلقة","link"=>"/course/groups/pending", "number"=>0];
+                $navContent[] = ["icon"=>"far fa-bell","title"=>" الاشعارات","link"=>"/notification","number"=>0];
                 $navContent[] = ["icon"=>"far fa-chart-pie","title"=>" جدول الحصص","link"=>"/teacher/TimeTabel"];
 
                 
