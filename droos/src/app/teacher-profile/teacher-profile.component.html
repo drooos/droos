@@ -1,0 +1,16 @@
+<button [disabled]="clicked" (click)="handleClick()" >
+    Testttting button
+</button>
+
+
+<div *ngFor="let boat of boatData">
+    <ul>
+        <li>
+            {{ boat.name }}
+        </li>
+        <li>
+            {{ boat.age }}
+        </li>
+    </ul>
+    
+</div>
