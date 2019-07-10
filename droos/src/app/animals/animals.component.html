@@ -1,0 +1,12 @@
+<h1>
+    Animal List
+</h1>
+
+<ul>
+    <li *ngFor="let animal of animals$ | async">
+        <a [routerLink]="['/animals', animal.name]" >
+            {{ animal.name }}
+        </a>
+    </li>
+</ul>
+<router-outlet></router-outlet>
