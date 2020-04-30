@@ -22,7 +22,7 @@
         "gulp-connect-php": "^1.0.3",
         "gulp-livereload": "^4.0.1",
         "gulp-sass": "^4.0.2",
-        "jquery": "^3.4.1",
+        "jquery": "^3.5.0",
         "lodash": "^4.17.5",
         "node-sass": "^4.11.0",
         "popper.js": "^1.12",
