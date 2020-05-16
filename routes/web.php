@@ -10,18 +10,18 @@ Route::post ('Profile/Edit'                 , 'HomeController@updateTeacher'    
 Route::get  ('Profile'                      , 'users@redirectUser'                      );
 Route::get  ('/logout'                      , 'users@logout'                            );
 //parent modules
-Route::view ('parent/linkSon'               , 'parentModules.link_son'                  )->middleware('parent');
-Route::post ('parent/linkSon'               , 'Parents@link_parent_to_son'              )->middleware('parent');
-Route::post ('parent/finishLink'            , 'Parents@finish_link'                     )->middleware('parent');
+//Route::view ('parent/linkSon'               , 'parentModules.link_son'                  )->middleware('parent');
+Route::post ('parent/linkSon'               , 'parents@link_parent_to_son'              )->middleware('parent');
+Route::post ('parent/finishLink'            , 'parents@finish_link'                     )->middleware('parent');
 Route::get  ('parent/mySons'                , 'parents@parent_sons'                     )->middleware('parent');
-Route::get  ('sons/timeTable/{studentId}'                ,'course@get_sons_time_table'                     )->middleware('parent');
+Route::get  ('sons/timeTable/{studentId}'   , 'course@get_sons_time_table'               )->middleware('parent');
 //teacher modules
-Route::get  ('teacher/addCourse'            , 'Course@get_new_course_form'              )->middleware('teacher');
-Route::get  ('teacher/TimeTabel'            , 'Course@get_my_time_table'                )->middleware('teacher');
-Route::post ('teacher/addCourse'            , 'Course@add_new_course'                   )->middleware('teacher');
-Route::get  ('teacher/teacherCourses'       , 'Course@get_my_courses'                   )->middleware('teacher');
-Route::get  ('teacher/courses/addGroup/{id}', 'Course@go_to_add_group_form'             )->middleware('teacher');
-Route::post ('teacher/courses/addGroup'     , 'Course@add_new_group'                    )->middleware('teacher');
+Route::get  ('teacher/addCourse'            , 'course@get_new_course_form'              )->middleware('teacher');
+Route::get  ('teacher/TimeTabel'            , 'course@get_my_time_table'                )->middleware('teacher');
+Route::post ('teacher/addCourse'            , 'course@add_new_course'                   )->middleware('teacher');
+Route::get  ('teacher/teacherCourses'       , 'course@get_my_courses'                   )->middleware('teacher');
+Route::get  ('teacher/courses/addGroup/{id}', 'course@go_to_add_group_form'             )->middleware('teacher');
+Route::post ('teacher/courses/addGroup'     , 'course@add_new_group'                    )->middleware('teacher');
 //coures modules
 Route::get  ('course/show/{id}'             , 'course@get_course_full_details_by_Id'    );
 Route::get  ('course/groups/pending'        , 'course@get_pending_requests_for_teacher' )->middleware('teacher');
@@ -35,8 +35,8 @@ Route::get  ('manage_users'                 , 'admin@getPending'                
 Route::post ('manage_users'                 , 'admin@verifyAccount'                     )->middleware('admin');
 //student modules
 Route::get  ('student/parent'               , 'student@get_my_parent'                   )->middleware('student');
-Route::get  ('student/timeTable'            , 'Course@get_student_time_table'           )->middleware('student');
-Route::get  ('student/courses'              , 'Course@get_student_courses'              )->middleware('student');
+Route::get  ('student/timeTable'            , 'course@get_student_time_table'           )->middleware('student');
+Route::get  ('student/courses'              , 'course@get_student_courses'              )->middleware('student');
 Route::get  ('student/course/{id}/leave'    , 'group@student_leave_group_by_group_id'   )->middleware('student');
 Route::get  ( 'student_course_show'         , 'course@getstudentscourses'               )->middleware('student');
 Route::get  ( 'allcourses'                  , 'course@getallcourses'                    );
