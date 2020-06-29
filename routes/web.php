@@ -10,7 +10,7 @@ Route::post ('Profile/Edit'                 , 'HomeController@updateTeacher'    
 Route::get  ('Profile'                      , 'users@redirectUser'                      );
 Route::get  ('/logout'                      , 'users@logout'                            );
 //parent modules
-//Route::view ('parent/linkSon'               , 'parentModules.link_son'                  )->middleware('parent');
+Route::view ('parent/linkSon'               , 'parentModules.link_son'                  )->middleware('parent');
 Route::post ('parent/linkSon'               , 'parents@link_parent_to_son'              )->middleware('parent');
 Route::post ('parent/finishLink'            , 'parents@finish_link'                     )->middleware('parent');
 Route::get  ('parent/mySons'                , 'parents@parent_sons'                     )->middleware('parent');

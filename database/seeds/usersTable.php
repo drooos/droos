@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class usersTable extends Seeder
 {
@@ -12,6 +13,8 @@ class usersTable extends Seeder
      */
     public function run()
     {
+        $faker = Faker::create('App\users');
+
         $lastId = DB::table('users')->insertGetId([
             'userFname' => 'admin',
             'userLname' => 'admin',
@@ -28,9 +31,9 @@ class usersTable extends Seeder
         while($i--){
             $actor = $this->actor[rand(0,4)];
             $lastId = DB::table('users')->insertGetId([
-                'userFname' => Str::random(10),
-                'userLname' => Str::random(10),
-                'userNumber' => "011111111",
+                'userFname' => $faker->name(),
+                'userLname' => $faker->name(),
+                'userNumber' => $faker->phoneNumber(),
                 'gender' => 0,
                 'secQues'=>1,
                 'secAns'=> "lol",
@@ -43,7 +46,7 @@ class usersTable extends Seeder
                     DB::table('teachers')->insert([
                         'teacherId' => $lastId,
                         'teacherRate'=>0.0,
-                        'teacherDetails'=>''
+                        'teacherDetails'=>$faker->sentence($nbWords = 6, $variableNbWords = true)
                     ]);
                 break;
 
